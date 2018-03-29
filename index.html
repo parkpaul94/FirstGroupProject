@@ -1,0 +1,82 @@
+<html>
+    <title>Interactive Cocktail Repository</title>
+    <head>
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/styles.css">
+    </head>
+    <body>
+        
+        <div class="text-center headerDiv">Cocktail Recipes</div>
+        <div class="container">
+            <div class="text-center randomDrinks">
+                <div id="drinktitle">Random Drinks</div>
+                    <div class="text-center rDContent">
+                        <div class="rDLeft">
+                            <img class="thumbnail" src="assets/images/cocktail.jpg">
+                        </div>
+                        <div class="rDRight">
+                            <div class="rDIng1">
+                                Gin, juice and other goodness — <br>
+                                Get ready to drink in the Ling Ling Collins.<br><br>
+                            <div class="rDIng2">
+                                3 Luxardo cherries<br>
+                                1½ oz. gin<br>
+                                ½ oz. fresh lemon juice<br>
+                                ⅓ oz. elderflower syrup<br>
+                                ¾ oz. fresh grapefruit juice<br>
+                                ¾ oz. cranberry juice<br>
+                                ¼ oz. yellow Chartreuse<br>
+                                Soda water<br>
+                                Tools: muddler, shaker, strainer, fine strainer<br>
+                                Glass: Collins<br>
+                                Garnish: shiso leaf (optional)<br><br></div>
+                            <div class="rDIng3">
+                                Muddle the cherries in a shaker. <br>
+                                Combine the remaining ingredients, except soda water, and shake with ice. <br>
+                                Fine-strain into an ice-filled glass, top with soda and garnish.
+                        
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+<!-- MAKES A SLANT, NOT SURE OF THE PRACTICALITY -->
+                    <!-- <section class="slanteddiv"></section>
+                    <section class="rDslant"></section> -->
+            </div>
+            <div class="text-center searchDrinks">
+                <div id="drinktitle">Find Recipe</div>
+                <div class="text-center sDContent">
+                    <div class="form-group">
+                        <label for="inputDefault"></label>
+                        <input type="text" class="form-control" placeholder="Cocktail Name" id="inputDefault">
+                        <button id="searchbutton" class="CName">Search</button>
+                    </div><hr>
+                    <div class="form-group">
+                        <label for="inputDefault"></label>
+                        <input type="text" class="form-control" placeholder="Ingredient Name" id="inputDefault">
+                        <button id="searchbutton" class="IName">Search</button>
+                    </div><hr>
+                    <button class="YAlcohol">Alcoholic</button>
+                    <button class="YAlcohol">Non-Alcoholic</button>
+                    <hr>
+                    <button class="glass">Glass</button>
+                    <button class="flute">Flute</button>
+                    <hr>
+                    <button class="ordinary">Ordinary</button>
+                    <button class="cocktail">Cocktail</button>
+                    <hr>
+                    <img class="map" src="assets/images/map.png">
+            </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
+
+<!-- 
+    Lookup full cocktail details by id
+    https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=13060
+        USE THIS TO PULL THE INFO CLICKED ON THE COCKTAIL LIKE HOW I DID IT FOR THE MOVIE
+ -->
