@@ -83,18 +83,9 @@ var DisplayDrinks = function(searched) {
         results++
         var drinkLists = $('<li>').text(drinkresult[i].strDrink);
         drinkLists.addClass('list').attr('id', drinkresult[i].idDrink);
-        // DrinkIngredients = [drinkresult[i].strIngredient1, drinkresult[i].strIngredient2, drinkresult[i].strIngredient3, drinkresult[i].strIngredient4, drinkresult[i].strIngredient5, drinkresult[i].strIngredient6, drinkresult[i].strIngredient7, drinkresult[i].strIngredient8, drinkresult[i].strIngredient9, drinkresult[i].strIngredient10, drinkresult[i].strIngredient11, drinkresult[i].strIngredient12, drinkresult[i].strIngredient13, drinkresult[i].strIngredient14, drinkresult[i].strIngredient15];
-        // DrinkMeasure  = [drinkresult[i].strMeasure1, drinkresult[i].strMeasure2, drinkresult[i].strMeasure3, drinkresult[i].strMeasure4, drinkresult[i].strMeasure5, drinkresult[i].strMeasure6, drinkresult[i].strMeasure7, drinkresult[i].strMeasure8, drinkresult[i].strMeasure9, drinkresult[i].strMeasure10, drinkresult[i].strMeasure11, drinkresult[i].strMeasure12, drinkresult[i].strMeasure13, drinkresult[i].strMeasure14, drinkresult[i].strMeasure15];
-        // console.log('Ing: ', DrinkIngredients);
-        // console.log('Mea: ', DrinkMeasure);
-        // drinkLists.addClass('list').attr('id', drinkresult[i].strIngredient);
-        // console.log(drinkresult[i].idDrink);
-        // console.log(drinkresult[i].strIngredient);
         $('.drinkinfo').append(drinkLists);
-        // console.log(DrinkIngredients[i]);
     }
     $('.list').on('click', function(drinkSelected) {
-        // console.log(drinkSelected.target.id);
         var drinkRecip = $('<li>').text(drinkSelected.target.id);
         $.ajax({
             url: searchURL + 'lookup.php?i=' + drinkSelected.target.id,
@@ -102,11 +93,22 @@ var DisplayDrinks = function(searched) {
         }).then(function(response) {
             console.log(searchURL + 'lookup.php?i=' + drinkSelected.target.id);
             console.log(response.drinks[0].strInstructions);
+
+                        // var ing = "";
+                        var drinkObj = response.drinks[0];
+                        console.log(drinkObj);
+                        // for (var prop in drinkObj) {
+                        // if (drinkObj.hasOwnProperty(prop)) { 
+                        // // or if (Object.prototype.hasOwnProperty.call(obj,prop)) for safety...
+                        // console.log(prop + " : " + drinkObj[prop])
+                        // }
+                        // }
+                        // console.log(Object.keys(drinkObj)); 
+
+
             var DisplaySelected = $('<li>').html(response.drinks[0].strInstructions);
             DisplaySelected.addClass('list');
             $('.rDRight').html(DisplaySelected);
-        // var drinkRecip = $('<li>').text(drinkSelected.target.id);
-        // $('.rDRight').html(drinkresult[i].strInstructions);
         drinkRecip.addClass('list');
       })
     });
