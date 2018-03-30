@@ -176,7 +176,7 @@ button:hover {
     transition: .5s ease-in-out;
 }
 .map {
-    height: 51.5%;
+    height: 41%;
     width: 100%;
     border-radius: 10px;
     margin-top: 5px;
@@ -236,7 +236,7 @@ button:hover {
 }
 #blinker {
     animation-name: blinker;
-    animation-duration: 2.5s;
+    animation-duration: 3.5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
