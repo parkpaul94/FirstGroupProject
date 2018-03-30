@@ -57,14 +57,14 @@ a:hover {
     background: linear-gradient(to bottom right, #272727, #1A1A1A);
     flex: 2;
     height: 100%;
-    overflow: scroll;
+    overflow-y: scroll;
     border-radius: 0 20px 0 20px;
 }
 .searcheddrinks {
     background-color: #1A1A1A;
     flex: 1;
     margin-right: 7.5px;
-    overflow: scroll;
+    overflow-y: scroll;
     border-radius: 0 20px 0 20px;
 }
 .rDIng1 {
