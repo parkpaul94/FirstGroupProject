@@ -1,0 +1,63 @@
+<html>
+    <title>Interactive Cocktail Repository</title>
+    <head>
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/styles.css">
+    </head>
+    <body>
+        
+        <div class="text-center headerDiv"><span id="blinker"><a href="index.html">Cocktail Recipes</a></span></div>
+        
+
+        <div class="container">
+                <div class="text-center randomDrinks">
+                    <div id="drinktitle">Random Drinks</div>
+                        <div class="text-center rDContent">
+                            <div class="searcheddrinks">
+                                    <div class="drinkinfo"></div>
+                            </div>
+                            <div class="rDRight">
+
+                        </div>
+                        </div>
+                </div>
+                <div class="text-center searchDrinks">
+                    <div id="drinktitle">Find Recipe</div>
+                    <div class="text-center sDContent">
+                        <div class="form-group">
+                            <label for="inputDefault"></label>
+                            <input type="text" class="form-control" placeholder="Cocktail Name" id="NSearched">
+                            <button id="searchbutton" class="CName">Search</button>
+                        </div><hr>
+                        <div class="form-group">
+                            <label for="inputDefault"></label>
+                            <input type="text" class="form-control" placeholder="Ingredient Name" id="iSearched">
+                            <button id="searchbutton" class="IName">Search</button>
+                        </div><hr>
+                        <button class="YAlcohol">Alcoholic</button>
+                        <button class="YAlcohol">Non-Alcoholic</button>
+                        <hr>
+                        <button class="glass">Glass</button>
+                        <button class="flute">Flute</button>
+                        <hr>
+                        <button class="ordinary">Ordinary</button>
+                        <button class="cocktail">Cocktail</button>
+                        <hr>
+                        <img class="map" src="assets/images/map.png">
+                </div>
+                </div>
+            </div>
+        
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src ="assets/javascript/javascript.js"></script>
+<script>
+    DisplayDrinks();
+</script>
+    </body>
+</html>
+
