@@ -1,43 +1,3 @@
-// API Methods
-// Search cocktail by name
-// https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
-// Search ingredient by name
-// https://www.thecocktaildb.com/api/json/v1/1/search.php?i=vodka
-// Lookup full cocktail details by id
-// https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=13060
-// Lookup a random cocktail
-// https://www.thecocktaildb.com/api/json/v1/1/random.php
-// Search by ingredient
-// https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin
-// https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka
-// Filter by alcoholic
-// https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic
-// https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic
-// Filter by Category
-// https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink
-// https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail
-// Filter by Glass
-// https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=Cocktail_glass
-// https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=Champagne_flute
-// List the categories, glasses, ingredients or alcoholic filters
-// https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list
-// https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list
-// https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list
-// https://www.thecocktaildb.com/api/json/v1/1/list.php?a=list
-
-//  Images
-// https://www.thecocktaildb.com/images/ingredients/ice-Small.png (100x100 pixels)
-// https://www.thecocktaildb.com/images/ingredients/ice-Medium.png (350x350 pixels)
-// https://www.thecocktaildb.com/images/ingredients/ice.png (700x700 pixels)
-
-// var queryURL = "https://www.thecocktaildb.com/api/json/v1/1/search.php" + "?s=" + input;
-// var queryURL = "https://www.thecocktaildb.com/api/json/v1/1/search.php" + "?i=" + input;
-
-// =============================================================================
-// https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=13060
-// This will pull the cocktail information. Use this to pull information and display on a new HTML like movie one
-
-
 var searchURL = "https://www.thecocktaildb.com/api/json/v1/1/";
 var results = 0;
 var ingList = 0;
@@ -45,6 +5,17 @@ var measList = 0;
 var searchText = "";
 var DrinkIngredients = [];
 var DrinkMeasure = [];
+
+
+function initMap() {
+    var directionsService = new google.maps.DirectionsService;
+    var directionsDisplay = new google.maps.DirectionsRenderer;
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 38.902861, lng: -77.02775270000001},
+      zoom: 15
+      // MAKE IT DISPLAY YOUR LOCATION
+    });
+};
 
   // ================ AJAX VERSION =====================
   var NameSearch = function(searched) {
@@ -73,22 +44,12 @@ $('#NSearched').on('keyup', function(event) {
     }
 })
 
-// var DisplayDrinks = function(searched) {
-//     var drinkresult = JSON.parse(localStorage.getItem("sDrinks"));
-//     console.log(drinkresult);
-//     for (var i = 0; i < drinkresult.length; i++) {
-//         results++
-//         var drinkLists = $('<li>').text(drinkresult[i].strDrink);
-//         drinkLists.addClass('list').attr('id', drinkresult[i].idDrink);
-//         $('.drinkinfo').append(drinkLists);
-//         // console.log(DrinkIngredients[i]);
-//     };
-// };
-
 var DisplayDrinks = function(searched) {
     var drinkresult = JSON.parse(localStorage.getItem("sDrinks"));
     console.log(drinkresult);
     $('.ListContainer').hide();
+    $('.DrinkInst').hide();
+    $('.moreinfo').hide();
     for (var i = 0; i < drinkresult.length; i++) {
         var drinkLists = $('<li>').text(drinkresult[i].strDrink);
         drinkLists.addClass('list').attr('id', drinkresult[i].idDrink);
@@ -115,14 +76,19 @@ var DisplayDrinks = function(searched) {
                     }
                 }
 
+                var dName = $('<div>').text(response.drinks[0].strDrink).attr('id', 'drinktitle');
                 var ingList = $('<ul>').addClass('ulClass');
                 var drinkImage = $('<img>').attr('src', response.drinks[0].strDrinkThumb).addClass('thedrink');
-                var dName = $('<div>').text(response.drinks[0].strDrink).attr('id', 'drinktitle');
+                var dDirection = $('<div>').text(response.drinks[0].strInstructions).addClass('list');
+                var dGlass = $('<div>').text('Glass: ' + response.drinks[0].strGlass).addClass('list glass-row');
+                var dAlc = $('<div>').text('Type: ' + response.drinks[0].strAlcoholic).addClass('list glass-row');
+                var dCata = $('<div>').text('Catagory: ' + response.drinks[0].strCategory).addClass('list glass-row');
+                var testereverything = $('<div>');
+                testereverything.append(dAlc);
+                testereverything.append(dCata);
+                testereverything.append(dGlass);
                 for (var i = 0; i < totalIngredients.length; i++) {
-                    // const ingredientText =  totalIngredients[i] + '  ' +  totalMeasure[i]
-
                     var ingDisplay = $('<li>' + 'ingredients').addClass('recipe-display');
-
                     const ingredientElem = $('<div>').addClass('DisplayD display-ingedients');
                     ingredientElem.text(totalIngredients[i]);
                     const measureElem = $('<div>').addClass('DisplayD display-measurement');
@@ -132,98 +98,86 @@ var DisplayDrinks = function(searched) {
                     ingDisplay.append(measureElem);
                     ingList.append(ingDisplay);
                 }
+                $('.drinkname').html(dName);
                 $('.DrinkImg').html(drinkImage);
                 $('.ListContainer').show();
                 $('.ListContainer').html(ingList);
-                $('.drinkname').html(dName);
-
+                $('.DrinkInst').show();
+                $('.DrinkInst').html(dDirection);
+                $('.moreinfo').show();
+                $('.glassType').html(testereverything);
+                
                 console.log(response.drinks[0]);
                 console.log(totalIngredients);
                 console.log(totalMeasure);
-            // console.log(searchURL + 'lookup.php?i=' + drinkSelected.target.id);
-            // console.log(response.drinks[0].strInstructions);
-            // console.log(ingredientPlaceholder);
-                        // var ing = "";
-                        // var drinkObj = response.drinks[0];
-                        // console.log(drinkObj);
-                        // for (var prop in drinkObj) {
-                        // if (drinkObj.hasOwnProperty(prop)) { 
-                        // // or if (Object.prototype.hasOwnProperty.call(obj,prop)) for safety...
-                        // console.log(prop + " : " + drinkObj[prop])
-                        // }
-                        // }
-                        // console.log(Object.keys(drinkObj)); 
-            // var DisplaySelected = $('<li>').html(totalIngredients);
-            // var DisplaySelected = $('<li>').html(response.drinks[0].strInstructions);
-            // var DisplaySelected = $('<li>').html(response.drinks[0].strIngredient1 + '<br>' + response.drinks[0].strIngredient2 + '<br>' + response.drinks[0].strIngredient3 + '<br>' + response.drinks[0].strIngredient4 + '<br>' + response.drinks[0].strIngredient5 + '<br>' + response.drinks[0].strIngredient6 + '<br>' + response.drinks[0].strIngredient7 + '<br>' + response.drinks[0].strIngredient8 + '<br>' + response.drinks[0].strIngredient9 + '<br>' + response.drinks[0].strIngredient10 + '<br>' + response.drinks[0].strIngredient11 + '<br>' + response.drinks[0].strIngredient12 + '<br>' + response.drinks[0].strIngredient13 + '<br>' + response.drinks[0].strIngredient14 + '<br>' + response.drinks[0].strIngredient15 );
-            // DisplaySelected.addClass('list');
-            // $('.rDRight').html(DisplaySelected);
-        // drinkRecip.addClass('list');
       })
     });
 };
-// var drinkSelected = function(searched) {
-//     $.ajax({
-//         url: searchURL + 'lookup.php?i=' + searched,
-//         method: "GET"
-//       }).then(function(response) {
-//         for (var i = 0; i < response.length; i++) {
-//             results++
-//             var ingredientPlaceholder = "strIngredient" + (i+1);
-            
-//             var drinkLists = $('<li>').text(drinkresult[i].strDrink);
-//             drinkLists.addClass('list').attr('a', drinkresult[i].idDrink);
-//             $('.rDRight').append(drinkLists);
-//         }
-//         console.log(response.drinks);
-//         console.log(searched);
-//         console.log(ingredientPlaceholder);
-// })
-// }
+var RandomDrink = function(searched) {
+    console.log(searched);
+    $('.randomContainer').hide();
+    $('.DrinkInst').hide();
+    $('.moreinfo').hide();
+        $.ajax({
+            url: searchURL + 'random.php',
+            method: "GET"
+        }).then(function(response) {
+            const totalIngredients = [];
+            const totalMeasure = [];
+                for (const key in response.drinks[0]) {
+                    if (key.indexOf('Ingredient') > -1) {
+                        const element = response.drinks[0][key];
+                        if (element) {
+                            totalIngredients.push(element)
 
+                            const measureKey = key.replace('Ingredient', 'Measure')
+                            const measurement = response.drinks[0][measureKey]
+                            totalMeasure.push(measurement);
+                        }
+                    }
+                }
 
-                                        // var DisplayDrinks = function(searched) {
-                                        //     var drinkresult = JSON.parse(localStorage.getItem("sDrinks"));
-                                        //     console.log(drinkresult);
+                var dName = $('<div>').text(response.drinks[0].strDrink);
+                var ingList = $('<ul>').addClass('ulClass');
+                var drinkImage = $('<img>').attr('src', response.drinks[0].strDrinkThumb).addClass('randomDrink');
+                var dDirection = $('<div>').text(response.drinks[0].strInstructions).addClass('list');
+                var dGlass = $('<div>').text('Glass: ' + response.drinks[0].strGlass).addClass('list glass-row');
+                var dAlc = $('<div>').text('Type: ' + response.drinks[0].strAlcoholic).addClass('list glass-row');
+                var dCata = $('<div>').text('Catagory: ' + response.drinks[0].strCategory).addClass('list glass-row');
+                var testereverything = $('<div>');
+                // MAKE IT SO IT DISPLAYS RECIPE, MEASUREMENT ABOVE THE RECIPE AND MEASUREMENTS.
+                // ALSO MAKE IT SO "DIRECTIONS IS DISPLAYED ABOVE DIRECTIONS AS WELL"
+                var rName = $('<li>').text('Recipe').addClass('list');
+                var mName = $('<li>').text('Measurement').addClass('list');
 
-                                        //     for (var i = 0; i < drinkresult.length; i++) {
-                                        //         results++
-                                        //         var drinkLists = $('<li>').text(drinkresult[i].strDrink);
-                                        //         drinkLists.addClass('list').attr('id', drinkresult[i].idDrink);
-                                        //         // DrinkIngredients = [drinkresult[i].strIngredient1, drinkresult[i].strIngredient2, drinkresult[i].strIngredient3, drinkresult[i].strIngredient4, drinkresult[i].strIngredient5, drinkresult[i].strIngredient6, drinkresult[i].strIngredient7, drinkresult[i].strIngredient8, drinkresult[i].strIngredient9, drinkresult[i].strIngredient10, drinkresult[i].strIngredient11, drinkresult[i].strIngredient12, drinkresult[i].strIngredient13, drinkresult[i].strIngredient14, drinkresult[i].strIngredient15];
-                                        //         // DrinkMeasure  = [drinkresult[i].strMeasure1, drinkresult[i].strMeasure2, drinkresult[i].strMeasure3, drinkresult[i].strMeasure4, drinkresult[i].strMeasure5, drinkresult[i].strMeasure6, drinkresult[i].strMeasure7, drinkresult[i].strMeasure8, drinkresult[i].strMeasure9, drinkresult[i].strMeasure10, drinkresult[i].strMeasure11, drinkresult[i].strMeasure12, drinkresult[i].strMeasure13, drinkresult[i].strMeasure14, drinkresult[i].strMeasure15];
-                                        //         // console.log('Ing: ', DrinkIngredients);
-                                        //         // console.log('Mea: ', DrinkMeasure);
-                                        //         // drinkLists.addClass('list').attr('id', drinkresult[i].strIngredient);
-                                        //         // console.log(drinkresult[i].idDrink);
-                                        //         // console.log(drinkresult[i].strIngredient);
-                                        //         $('.drinkinfo').append(drinkLists);
-                                        //         // console.log(DrinkIngredients[i]);
-                                        //     }
-                                        //     $('.list').on('click', function(drinkSelected) {
-                                        //         // console.log(drinkSelected.target.id);
-                                        //         var drinkRecip = $('<li>').text(DrinkIngredients);
-                                        //         $('.rDRight').html(drinkRecip);
-                                        //         drinkRecip.addClass('list');
-                                        //       })
-                                        // }
-                                        // var drinkSelected = function(searched) {
-                                        //     $.ajax({
-                                        //         url: searchURL + 'lookup.php?i=' + searched,
-                                        //         method: "GET"
-                                        //       }).then(function(response) {
-                                        //         for (var i = 0; i < response.length; i++) {
-                                        //             results++
-                                        //             var ingredientPlaceholder = "strIngredient" + (i+1);
-                                        //             console.log(ingredientPlaceholder);
-                                        //             var drinkLists = $('<li>').text(drinkresult[i].strDrink);
-                                        //             drinkLists.addClass('list').attr('a', drinkresult[i].idDrink);
-                                        //             $('.rDRight').append(drinkLists);
-                                        //         }
-                                        //         console.log(response.drinks);
-                                        //         console.log(searched);
-                                        // })
-                                        // }
+                testereverything.append(dAlc);
+                testereverything.append(dCata);
+                testereverything.append(dGlass);
+                for (var i = 0; i < totalIngredients.length; i++) {
+                    var ingDisplay = $('<li>').addClass('recipe-display');
+                    const ingredientElem = $('<div>').addClass('DisplayD display-ingedients random-prop');
+                    ingredientElem.text(totalIngredients[i]);
+                    const measureElem = $('<div>').addClass('DisplayD display-measurement random-prop');
+                    measureElem.text(totalMeasure[i]);
+
+                    ingDisplay.append(ingredientElem);
+                    ingDisplay.append(measureElem);
+                    ingList.append(ingDisplay);
+                }
+                $('#drinktitle').html(dName);
+                $('.randomImg').html(drinkImage);
+                $('.randomContainer').show();
+                $('.randomContainer').html(ingList);
+                $('.DrinkInst').show();
+                $('.DrinkInst').html(dDirection);
+                $('.moreinfo').show();
+                $('.glassType').html(testereverything);
+                
+                console.log(response.drinks[0]);
+                console.log(totalIngredients);
+                console.log(totalMeasure);
+      })
+    };
 
 var iSearch = function(searched) {
     console.log(searchURL);
@@ -292,8 +246,7 @@ $('#IngSearched').on('keyup', function(event) {
         IngSearch(searchText);
     }
 })
-// FOR THE ALCOHOLIC/NON-ALCOHOLIC BUTTON, IT DOESN'T GIVE YOU INGREDIENTS, YOU NEED TO UPON FINDING A DRINK YOU WANT, NEED TO BE ABLE TO SEARCH THE DRINK BY ID.
-// REFER BACK TO LINE 77 TO LINE 116
+
 $('.YAlcohol').on('click', function(AlcoholicDrink) {
     event.preventDefault();
     $.ajax({

@@ -25,50 +25,66 @@
                                     <div class="ListContainer">
                                     </div>
                                 </div>
-                                <div class="container">
+                                <div class="directions">
                                     <div class="DrinkInst"></div>
+                                </div>
+                                <div class="moreinfo">
+                                    <div class="glassType"></div>
                                 </div>
 
                         </div>
                         </div>
                 </div>
                 <div class="text-center searchDrinks">
-                    <div id="drinktitle">Find Recipe</div>
-                    <div class="text-center sDContent">
-                        <div class="form-group">
-                            <label for="inputDefault"></label>
-                            <input type="text" class="form-control" placeholder="Cocktail Search" id="NSearched">
-                            <button id="searchbutton" class="CSearch">Search</button>
-                        </div><hr>
-                        <div class="form-group">
-                            <label for="inputDefault"></label>
-                            <input type="text" class="form-control" placeholder="Ingredient Name" id="iSearched">
-                            <button id="searchbutton" class="IName">Search</button>
-                        </div><hr>
-                        <div class="form-group">
-                            <label for="inputDefault"></label>
-                            <input type="text" class="form-control" placeholder="Ingredient Search" id="IngSearched">
-                            <button id="searchbutton" class="ISearch">Search</button>
-                        </div><hr>
-                        <button class="YAlcohol">Alcoholic</button>
-                        <button class="NAlcohol">Non-Alcoholic</button>
-                        <hr>
-                        <button class="glass">Glass</button>
-                        <button class="flute">Flute</button>
-                        <hr>
-                        <button class="ordinary">Ordinary</button>
-                        <button class="cocktail">Cocktail</button>
-                        <hr>
-                        <img class="map" src="assets/images/map.png">
-                </div>
-                </div>
-            </div>
+                        <div id="drinktitle">Find Recipe</div>
+                        <div class="text-center sDContent">
+                            <div class="form-container">
+                            <div class="form-group">
+                                <label for="inputDefault"></label>
+                                <input type="text" class="form-control" placeholder="Cocktail Search" id="NSearched">
+                                <button id="searchbutton" class="CSearch">Search</button>
+                            </div><hr>
+                            <div class="form-group">
+                                <label for="inputDefault"></label>
+                                <input type="text" class="form-control" placeholder="Ingredient Name" id="iSearched">
+                                <button id="searchbutton" class="IName">Search</button>
+                            </div><hr>
+                            <div class="form-group">
+                                <label for="inputDefault"></label>
+                                <input type="text" class="form-control" placeholder="Ingredient Search" id="IngSearched">
+                                <button id="searchbutton" class="ISearch">Search</button>
+                            </div><hr>
+                        </div>
+                        <div class="button-container">
+                            <div class="alcohol-button">
+                                <button class="YAlcohol">Alcoholic</button>
+                                <button class="NAlcohol">Non-Alcoholic</button>
+                                <hr>
+                            </div>
+                            <div class="glass-button">
+                                <button class="glass">Glass</button>
+                                <button class="flute">Flute</button>
+                                <hr>
+                            </div>
+                            <div class="drink-type">
+                                <button class="ordinary">Ordinary</button>
+                                <button class="cocktail">Cocktail</button>
+                                <hr>
+                            </div>
+                        </div>
+                            <div class="mapcontain">
+                                <div id="map"></div>
+                            </div>
+                    </div>
+                    </div>
+                </div>  
         
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src ="assets/javascript/javascript.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAn3JnSU5rxciXcxNX43TIF8uMDV3cfstA&callback=initMap"type="text/javascript"></script>
 <script>
     DisplayDrinks();
 </script>

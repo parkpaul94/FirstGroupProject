@@ -29,6 +29,8 @@ a:hover {
 }
 .container {
     width: 90%;
+    height: 690px;
+    position: relative;
     display: flex;
 }
 #drinktitle {
@@ -43,7 +45,8 @@ a:hover {
 }
 .rDLeft {
     background-color: #1A1A1A;
-    flex: 1;
+    /* flex: 1; */
+    flex: 2%;
     margin-right: 7.5px;
     border-radius: 0 20px 0 20px;
 }
@@ -88,7 +91,7 @@ a:hover {
     /* padding-left: 50px; */
 }
 .randomDrinks {
-    flex: 3;
+    flex: 33%;
     background-color: #1A1A1A;
     position: relative;
     padding-right: 15px;
@@ -97,7 +100,9 @@ a:hover {
     box-shadow: 5px 5px 5px #171717;
 }
 .searchDrinks {
-    flex: 1;
+    min-width: 22vw;
+    /* min-width: 25%; */
+    /* flex: 1; */
     background-color: #1A1A1A;
     position: relative;
     padding-right: 15px;
@@ -125,13 +130,19 @@ a:hover {
     display: flex;
 }
 .sDContent {
+    display: block;
     background: #151515;
     box-sizing: border-box;
     text-align: center;
     margin-bottom: 15px;
     border-radius: 20px;
     padding: 20px 15px;
-    height: 620px;
+    position: relative;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    /* height: inherit; */
+    /* overflow: hidden; */
 }
 /* .slanteddiv:before {
     content: '';
@@ -165,8 +176,9 @@ hr {
 button {
     background-color: #414141;
     color: #FFFFE0;
+    font-size: 13px;
     height: 35px;
-    width: 145px;
+    width: 120px;
     margin: 0 4px;
     border-radius: 5px;
     margin-bottom: 10px;
@@ -176,11 +188,11 @@ button:hover {
     background-color: #131313;
     transition: .5s ease-in-out;
 }
-.map {
-    height: 41%;
-    width: 100%;
+#map {
+    height: 43%;
+    /* height: ; */
     border-radius: 10px;
-    margin-top: 5px;
+    
 }
 #searchbutton {
     width: 90px;
@@ -275,7 +287,6 @@ button:hover {
     padding: 8px;
     border-radius: 5px;
     flex: 1.5;
-    flex-basis: auto;
 }
 .drinkcontain {
     display: flex;
@@ -290,9 +301,59 @@ button:hover {
 .ulClass {
     margin: 0;
 }
+.form-container, .button-container, .mapcontain {
+    flex: 1;
+}
+.directions {
+    display: flex;
+    margin: 0 10px 10px 15px;
+    background-color: #151515;
+}
+.DrinkInst {
+    text-align: justify;
+    padding: 5px;
+    width: 100%;
+}
+.moreinfo {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px 15px 15px;
+    background-color: #151515;
+    padding: 5px;
+}
+.glass-row {
+    flex: 25%;
+}
+.randomImg {
+    background-color: #1A1A1A;
+    flex: 1;
+    margin-right: 7.5px;
+    overflow-y: auto;
+    border-radius: 0 20px 0 20px;
+}
+.randomDrink {
+    width: 100%;
+    height: 100%;
+}
+.randomContain {
+    display: flex;
+    margin: 10px 10px 5px 15px;
+}
+.randomContainer {
+    background-color: #151515;
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 5px;
+    flex: 1;
+}
+.random-prop {
+    flex: 50%;
+}
 @keyframes blinker {
     0% {opacity: 1}
     45% {opacity: 0}
     55% {opacity: 0}
     100% {opacity: 1}
 }
+/* Media Queries 
+MAKE SEARCHDRINKS SMALLER BELOW 693PX. THAT'S WHEN IT MESSES WITH THE HEIGHT OF THE MAP */
