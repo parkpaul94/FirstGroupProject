@@ -52,19 +52,20 @@ a:hover {
     flex: 2;
     margin-left: 7.5px;
     border-radius: 0 20px 0 20px;
+    overflow-y: auto;
 }
 .ingDescription {
     background: linear-gradient(to bottom right, #272727, #1A1A1A);
     flex: 2;
     height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     border-radius: 0 20px 0 20px;
 }
 .searcheddrinks {
     background-color: #1A1A1A;
     flex: 1;
     margin-right: 7.5px;
-    overflow-y: scroll;
+    overflow-y: auto;
     border-radius: 0 20px 0 20px;
 }
 .rDIng1 {
@@ -224,7 +225,7 @@ button:hover {
     white-space: pre-wrap;
     box-shadow: 3px 3px 3px #1A1A1A;
     text-align: justify;
-    overflow: scroll;
+    overflow: auto;
     background: linear-gradient(to bottom right, #393939, #1A1A1A);
 }
 .name {
@@ -240,8 +241,58 @@ button:hover {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
+.display-ingedients, .display-measurement {
+    display: inline-block;
+    flex: 1;
+}
+.recipe-display {
+    display: flex;
+}
+.DisplayD {
+    color: #EBEBEB;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    padding: 0.75rem 1.25rem;
+    background-color: #222222;
+    border: 1px solid #080808;
+    border-radius: 3px;
+    transition: .2s ease-in-out;
+}
+.DisplayD:hover {
+    background-color: #080808;
+    transition: .2s ease-in-out;
+}
+.DrinkImg {
+    padding: 5px;
+    flex: 1;
+}
+.ListContainer {
+    background-color: #151515;
+    margin: 5px 0;
+    /* padding: 8px 8px 0 8px; */
+    padding: 8px;
+    border-radius: 5px;
+    flex: 1.5;
+    flex-basis: auto;
+}
+.drinkcontain {
+    display: flex;
+    margin: 0 10px;
+}
+.thedrink {
+    height: 300px;
+    width: 250px;
+    border: 10px solid #151515;
+    border-radius: 5px;
+}
+.ulClass {
+    margin: 0;
+}
 @keyframes blinker {
     0% {opacity: 1}
-    50% {opacity: .5}
+    45% {opacity: 0}
+    55% {opacity: 0}
     100% {opacity: 1}
 }
