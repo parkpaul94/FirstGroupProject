@@ -140,15 +140,18 @@ var RandomDrink = function(searched) {
                 var dName = $('<div>').text(response.drinks[0].strDrink);
                 var ingList = $('<ul>').addClass('ulClass');
                 var drinkImage = $('<img>').attr('src', response.drinks[0].strDrinkThumb).addClass('randomDrink');
+                var dInstructions = $('<div>').text('Drink Instructions').addClass('list inst-margin');
                 var dDirection = $('<div>').text(response.drinks[0].strInstructions).addClass('list');
                 var dGlass = $('<div>').text('Glass: ' + response.drinks[0].strGlass).addClass('list glass-row');
                 var dAlc = $('<div>').text('Type: ' + response.drinks[0].strAlcoholic).addClass('list glass-row');
                 var dCata = $('<div>').text('Catagory: ' + response.drinks[0].strCategory).addClass('list glass-row');
                 var testereverything = $('<div>');
-                // MAKE IT SO IT DISPLAYS RECIPE, MEASUREMENT ABOVE THE RECIPE AND MEASUREMENTS.
-                // ALSO MAKE IT SO "DIRECTIONS IS DISPLAYED ABOVE DIRECTIONS AS WELL"
-                var rName = $('<li>').text('Recipe').addClass('list');
-                var mName = $('<li>').text('Measurement').addClass('list');
+                var rmDisp = $('<li>').addClass('recipe-display2');
+                var rName = $('<div>').text('Recipe').addClass('DisplayD2 display-ingedients');
+                var mName = $('<div>').text('Measurement').addClass('DisplayD2 display-ingedients');
+                rmDisp.append(rName);
+                rmDisp.append(mName);
+                ingList.append(rmDisp);
 
                 testereverything.append(dAlc);
                 testereverything.append(dCata);
@@ -167,8 +170,10 @@ var RandomDrink = function(searched) {
                 $('#drinktitle').html(dName);
                 $('.randomImg').html(drinkImage);
                 $('.randomContainer').show();
+                $('.directions').prepend(dInstructions);
                 $('.randomContainer').html(ingList);
                 $('.DrinkInst').show();
+                $('.DrinkInst').html(dDirection);
                 $('.DrinkInst').html(dDirection);
                 $('.moreinfo').show();
                 $('.glassType').html(testereverything);

@@ -229,6 +229,12 @@ button:hover {
     background-color: #080808;
     transition: .2s ease-in-out;
 }
+.inst-margin {
+    margin: 5px 5px 0 5px;
+    color: #D1866B;
+    font-size: 22px;
+    font-weight: bolder;
+}
 .descript {
     color: #EBEBEB;
     font-size: 20px;
@@ -260,6 +266,10 @@ button:hover {
 .recipe-display {
     display: flex;
 }
+.recipe-display2 {
+    display: flex;
+    margin-bottom: 5px;
+}
 .DisplayD {
     color: #EBEBEB;
     font-size: 18px;
@@ -273,6 +283,23 @@ button:hover {
     transition: .2s ease-in-out;
 }
 .DisplayD:hover {
+    background-color: #080808;
+    transition: .2s ease-in-out;
+}
+.DisplayD2 {
+    color: #D1866B;
+    font-size: 22px;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    padding: 0.75rem 1.25rem;
+    background-color: #222222;
+    border: 1px solid #080808;
+    border-radius: 3px;
+    transition: .2s ease-in-out;
+}
+.DisplayD2:hover {
     background-color: #080808;
     transition: .2s ease-in-out;
 }
@@ -306,6 +333,7 @@ button:hover {
 }
 .directions {
     display: flex;
+    flex-direction: column;
     margin: 0 10px 10px 15px;
     background-color: #151515;
 }
@@ -337,7 +365,7 @@ button:hover {
 }
 .randomContain {
     display: flex;
-    margin: 10px 10px 5px 15px;
+    margin: 30px 10px 5px 15px;
 }
 .randomContainer {
     background-color: #151515;
@@ -346,9 +374,9 @@ button:hover {
     border-radius: 5px;
     flex: 1;
 }
-.random-prop {
+/* .random-prop {
     flex: 50%;
-}
+} */
 @keyframes blinker {
     0% {opacity: 1}
     45% {opacity: 0}
