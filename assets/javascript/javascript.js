@@ -319,6 +319,21 @@ $('.cocktail').on('click', function(AlcoholicDrink) {
     })
 })
 
+var authKey = "AIzaSyArQekFCAemjpJYgMnZrNT8blQaat7EvQ4";
+var queryURLBase = "https://www.googleapis.com/youtube/v3/search?key=" + authKey+"&channelId=UCaDY8WjYWy36bnt0RVzSklw&part=snippet,id&order=date&maxResults=20";
+$.ajax({
+  method: "GET",
+  url: queryURLBase
+}).then(function(data){
+  var youTubeResults=data.items[Math.floor(Math.random() * Math.floor(data.items.length))]
+  var video = $('<iframe>', {
+    src: 'https://www.youtube.com/embed/'+youTubeResults.id.videoId+'?autoplay=1&start=5',
+    type: 'video/mp4',
+    controls: true
+  });
+  $(".YTContent").append(video);
+})
+
 // ======================== AXIOS VERSION ============================
 
 // var NameSearch = function(searched) {
