@@ -230,6 +230,12 @@ button:hover {
 	background-color: #080808;
 	transition: .2s ease-in-out;
 }
+.inst-margin {
+    margin: 5px 5px 0 5px;
+    color: #D1866B;
+    font-size: 22px;
+    font-weight: bolder;
+}
 .descript {
 	color: #ebebeb;
 	font-size: 20px;
@@ -262,6 +268,10 @@ button:hover {
 .recipe-display {
 	display: flex;
 }
+.recipe-display2 {
+    display: flex;
+    margin-bottom: 5px;
+}
 .DisplayD {
 	color: #ebebeb;
 	font-size: 18px;
@@ -277,6 +287,23 @@ button:hover {
 .DisplayD:hover {
 	background-color: #080808;
 	transition: .2s ease-in-out;
+}
+.DisplayD2 {
+    color: #D1866B;
+    font-size: 22px;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    padding: 0.75rem 1.25rem;
+    background-color: #222222;
+    border: 1px solid #080808;
+    border-radius: 3px;
+    transition: .2s ease-in-out;
+}
+.DisplayD2:hover {
+    background-color: #080808;
+    transition: .2s ease-in-out;
 }
 .DrinkImg {
 	padding: 5px;
@@ -309,9 +336,16 @@ button:hover {
 	flex: 1;
 }
 .directions {
+<<<<<<< HEAD
 	display: flex;
 	margin: 0 10px 10px 15px;
 	background-color: #151515;
+=======
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px 10px 15px;
+    background-color: #151515;
+>>>>>>> 02b4ef07d78cf3c1b0c8c09c9090e2f3b80657b0
 }
 .DrinkInst {
 	text-align: justify;
@@ -340,8 +374,13 @@ button:hover {
 	height: 100%;
 }
 .randomContain {
+<<<<<<< HEAD
 	display: flex;
 	margin: 10px 10px 5px 15px;
+=======
+    display: flex;
+    margin: 30px 10px 5px 15px;
+>>>>>>> 02b4ef07d78cf3c1b0c8c09c9090e2f3b80657b0
 }
 .randomContainer {
 	background-color: #151515;
@@ -350,9 +389,15 @@ button:hover {
 	border-radius: 5px;
 	flex: 1;
 }
+<<<<<<< HEAD
 .random-prop {
 	flex: 50%;
 }
+=======
+/* .random-prop {
+    flex: 50%;
+} */
+>>>>>>> 02b4ef07d78cf3c1b0c8c09c9090e2f3b80657b0
 @keyframes blinker {
 	0% {
 		opacity: 1;

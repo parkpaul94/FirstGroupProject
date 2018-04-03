@@ -93,6 +93,7 @@ var DisplayDrinks = function(searched) {
 				const measureElem = $('<div>').addClass('DisplayD display-measurement');
 				measureElem.text(totalMeasure[i]);
 
+<<<<<<< HEAD
 				ingDisplay.append(ingredientElem);
 				ingDisplay.append(measureElem);
 				ingList.append(ingDisplay);
@@ -111,6 +112,44 @@ var DisplayDrinks = function(searched) {
 			console.log(totalMeasure);
 		});
 	});
+=======
+                    ingDisplay.append(ingredientElem);
+                    ingDisplay.append(measureElem);
+                    ingList.append(ingDisplay);
+                }
+                $('.drinkname').html(dName);
+                $('.DrinkImg').html(drinkImage);
+                $('.ListContainer').show();
+                $('.ListContainer').html(ingList);
+                $('.DrinkInst').show();
+                $('.DrinkInst').html(dDirection);
+                $('.moreinfo').show();
+                $('.glassType').html(testereverything);
+                
+                var authKey = "AIzaSyArQekFCAemjpJYgMnZrNT8blQaat7EvQ4";
+                // var queryURLBase = "https://www.googleapis.com/youtube/v3/search?key=" + authKey+ "&channelId=UCaDY8WjYWy36bnt0RVzSklw&part=snippet,id&order=date&maxResults=50";
+                var queryURLBase = "https://www.googleapis.com/youtube/v3/search?key=" + authKey+ "&channelId=UCaDY8WjYWy36bnt0RVzSklw&part=snippet,id";
+                    $.ajax({
+                    url: queryURLBase,
+                    method: "GET"
+                        }).then(function(data){
+                        var youTubeResults = data.items[Math.floor(Math.random() * Math.floor(data.items.length))]
+                        // var youTubeResults = data.items;
+                        var video = $('<iframe>', {
+                            src: 'https://www.youtube.com/embed/'+youTubeResults.id.videoId+'?autoplay=0',
+                            type: 'video/mp4',
+                            controls: true
+                    });
+                    console.log(data.items);
+                    $(".YTContent").html(video);
+                })
+
+                console.log(response.drinks[0]);
+                console.log(totalIngredients);
+                console.log(totalMeasure);
+      })
+    });
+>>>>>>> 02b4ef07d78cf3c1b0c8c09c9090e2f3b80657b0
 };
 var RandomDrink = function(searched) {
 	console.log(searched);
@@ -149,6 +188,7 @@ var RandomDrink = function(searched) {
 		var rName = $('<li>').text('Recipe').addClass('list');
 		var mName = $('<li>').text('Measurement').addClass('list');
 
+<<<<<<< HEAD
 		testereverything.append(dAlc);
 		testereverything.append(dCata);
 		testereverything.append(dGlass);
@@ -158,6 +198,23 @@ var RandomDrink = function(searched) {
 			ingredientElem.text(totalIngredients[i]);
 			const measureElem = $('<div>').addClass('DisplayD display-measurement random-prop');
 			measureElem.text(totalMeasure[i]);
+=======
+                var dName = $('<div>').text(response.drinks[0].strDrink);
+                var ingList = $('<ul>').addClass('ulClass');
+                var drinkImage = $('<img>').attr('src', response.drinks[0].strDrinkThumb).addClass('randomDrink');
+                var dInstructions = $('<div>').text('Drink Instructions').addClass('list inst-margin');
+                var dDirection = $('<div>').text(response.drinks[0].strInstructions).addClass('list');
+                var dGlass = $('<div>').text('Glass: ' + response.drinks[0].strGlass).addClass('list glass-row');
+                var dAlc = $('<div>').text('Type: ' + response.drinks[0].strAlcoholic).addClass('list glass-row');
+                var dCata = $('<div>').text('Catagory: ' + response.drinks[0].strCategory).addClass('list glass-row');
+                var testereverything = $('<div>');
+                var rmDisp = $('<li>').addClass('recipe-display2');
+                var rName = $('<div>').text('Recipe').addClass('DisplayD2 display-ingedients');
+                var mName = $('<div>').text('Measurement').addClass('DisplayD2 display-ingedients');
+                rmDisp.append(rName);
+                rmDisp.append(mName);
+                ingList.append(rmDisp);
+>>>>>>> 02b4ef07d78cf3c1b0c8c09c9090e2f3b80657b0
 
 			ingDisplay.append(ingredientElem);
 			ingDisplay.append(measureElem);
@@ -172,11 +229,34 @@ var RandomDrink = function(searched) {
 		$('.moreinfo').show();
 		$('.glassType').html(testereverything);
 
+<<<<<<< HEAD
 		console.log(response.drinks[0]);
 		console.log(totalIngredients);
 		console.log(totalMeasure);
 	});
 };
+=======
+                    ingDisplay.append(ingredientElem);
+                    ingDisplay.append(measureElem);
+                    ingList.append(ingDisplay);
+                }
+                $('#drinktitle').html(dName);
+                $('.randomImg').html(drinkImage);
+                $('.randomContainer').show();
+                $('.directions').prepend(dInstructions);
+                $('.randomContainer').html(ingList);
+                $('.DrinkInst').show();
+                $('.DrinkInst').html(dDirection);
+                $('.DrinkInst').html(dDirection);
+                $('.moreinfo').show();
+                $('.glassType').html(testereverything);
+                
+                console.log(response.drinks[0]);
+                console.log(totalIngredients);
+                console.log(totalMeasure);
+      })
+    };
+>>>>>>> 02b4ef07d78cf3c1b0c8c09c9090e2f3b80657b0
 
 var iSearch = function(searched) {
 	console.log(searchURL);
@@ -312,6 +392,8 @@ $('.cocktail').on('click', function(AlcoholicDrink) {
 		localStorage.setItem('sDrinks', JSON.stringify(response.drinks));
 	});
 });
+
+
 
 // ======================== AXIOS VERSION ============================
 
