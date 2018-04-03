@@ -108,13 +108,13 @@ var DisplayDrinks = function(searched) {
                 $('.glassType').html(testereverything);
                 
                 var authKey = "AIzaSyArQekFCAemjpJYgMnZrNT8blQaat7EvQ4";
-                // var queryURLBase = "https://www.googleapis.com/youtube/v3/search?key=" + authKey+ "&channelId=UCaDY8WjYWy36bnt0RVzSklw&part=snippet,id&order=date&maxResults=50";
-                var queryURLBase = "https://www.googleapis.com/youtube/v3/search?key=" + authKey+ "&channelId=UCaDY8WjYWy36bnt0RVzSklw&part=snippet,id";
+                var queryURLBase = "https://www.googleapis.com/youtube/v3/search?key=" + authKey + "&channelId=UCaDY8WjYWy36bnt0RVzSklw&part=snippet,id&order=date&maxResults=50";
                     $.ajax({
                     url: queryURLBase,
                     method: "GET"
                         }).then(function(data){
-                        var youTubeResults = data.items[Math.floor(Math.random() * Math.floor(data.items.length))]
+                        var youTubeResults = data.items[Math.floor(Math.random() * Math.floor(data.items.length))];
+                        console.log(data.items.length);
                         // var youTubeResults = data.items;
                         var video = $('<iframe>', {
                             src: 'https://www.youtube.com/embed/'+youTubeResults.id.videoId+'?autoplay=0',
