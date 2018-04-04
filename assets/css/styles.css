@@ -336,16 +336,10 @@ button:hover {
 	flex: 1;
 }
 .directions {
-<<<<<<< HEAD
-	display: flex;
-	margin: 0 10px 10px 15px;
-	background-color: #151515;
-=======
     display: flex;
     flex-direction: column;
     margin: 0 10px 10px 15px;
     background-color: #151515;
->>>>>>> 02b4ef07d78cf3c1b0c8c09c9090e2f3b80657b0
 }
 .DrinkInst {
 	text-align: justify;
@@ -374,13 +368,8 @@ button:hover {
 	height: 100%;
 }
 .randomContain {
-<<<<<<< HEAD
-	display: flex;
-	margin: 10px 10px 5px 15px;
-=======
     display: flex;
     margin: 30px 10px 5px 15px;
->>>>>>> 02b4ef07d78cf3c1b0c8c09c9090e2f3b80657b0
 }
 .randomContainer {
 	background-color: #151515;
@@ -389,15 +378,47 @@ button:hover {
 	border-radius: 5px;
 	flex: 1;
 }
-<<<<<<< HEAD
-.random-prop {
-	flex: 50%;
+.flexcontainer {
+    margin: 1% 1%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
-=======
+.video-contain {
+    color: #ebebeb;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    background-color: #1a1a1a;
+    border-radius: 5px;
+    transition: .2s ease-in-out;
+    padding: 1%;
+    margin-bottom: 5%;
+    box-shadow: 5px 5px 5px #171717;
+}
+.YTContent {
+    display: flex;
+    flex-wrap: wrap;
+}
+.dFlex {
+    flex: 20%;
+    margin: 10px;
+    border: 0;
+    border-radius: 10px;
+    background-color: #151515;
+    box-shadow: 5px 5px 5px #171717;
+}
+.button-center {
+    margin: 0 auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
 /* .random-prop {
     flex: 50%;
 } */
->>>>>>> 02b4ef07d78cf3c1b0c8c09c9090e2f3b80657b0
 @keyframes blinker {
 	0% {
 		opacity: 1;
@@ -438,9 +459,6 @@ MAKE SEARCHDRINKS SMALLER BELOW 693PX. THAT'S WHEN IT MESSES WITH THE HEIGHT OF 
 	.container {
 		display: block;
 	}
-	/* .rDRight {
-		overflow-wrap: break-word;
-	} */
 	.rDIng1 {
 		font-size: 15px;
 	}

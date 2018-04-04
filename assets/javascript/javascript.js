@@ -28,6 +28,7 @@ function initMap() {
         console.log(searched);
         window.location = "results.html"
         localStorage.setItem("sDrinks", JSON.stringify(response.drinks));
+        localStorage.setItem('searchterm', searched);
     })
   }; 
 $('.CSearch').on('click', function(event) {
@@ -48,6 +49,8 @@ var DisplayDrinks = function(searched) {
     var drinkresult = JSON.parse(localStorage.getItem("sDrinks"));
     console.log(drinkresult);
     $('.ListContainer').hide();
+    $('.YTContent').hide();
+    $('.video-contain').hide();
     $('.DrinkInst').hide();
     $('.moreinfo').hide();
     for (var i = 0; i < drinkresult.length; i++) {
@@ -55,6 +58,39 @@ var DisplayDrinks = function(searched) {
         drinkLists.addClass('list').attr('id', drinkresult[i].idDrink);
         $('.drinkinfo').append(drinkLists);
     }
+    var searchfordrink = localStorage.getItem('searchterm');
+    console.log(searchfordrink);
+    var authKey = "AIzaSyArQekFCAemjpJYgMnZrNT8blQaat7EvQ4";
+                var queryURLBase = "https://www.googleapis.com/youtube/v3/search?key=" + authKey + "&channelId=UCaDY8WjYWy36bnt0RVzSklw&part=snippet,id" + "&q=" + searchfordrink +"&order=viewCount&maxResults=8";
+                    $.ajax({
+                    url: queryURLBase,
+                    method: "GET"
+                        }).then(function(data){
+                    for (var i = 0; i < data.items.length; i++) {
+                        var youTubeResults = data.items[i];
+                        var video = $('<iframe>', {
+                            src: 'https://www.youtube.com/embed/'+youTubeResults.id.videoId+'?autoplay=0',
+                            type: 'video/mp4',
+                            allowfullscreen: true,
+                            controls: true
+                        });
+                        var YTVideo = $('<div>').addClass('list dFlex');
+                        $(YTVideo).append(video).addClass('fill');
+                        $(".YTContent").append(YTVideo);
+                }
+                $('.VideoShow').text(searchfordrink + " Videos");
+                console.log(data.items);
+                })
+    $('.VideoShow').on('click', function() {
+        $(".YTContent").show();
+        $(".video-contain").show();
+    });
+    
+    $('.VideoHide').on('click', function() {
+        $(".YTContent").hide();
+        $(".video-contain").hide();
+    });
+
     $('.list').on('click', function(drinkSelected) {
         var drinkRecip = $('<li>').text(drinkSelected.target.id);
         $.ajax({
@@ -75,7 +111,8 @@ var DisplayDrinks = function(searched) {
                         }
                     }
                 }
-
+                var ytDrink = response.drinks[0].strDrink;
+                console.log(ytDrink);
                 var dName = $('<div>').text(response.drinks[0].strDrink).attr('id', 'drinktitle');
                 var ingList = $('<ul>').addClass('ulClass');
                 var drinkImage = $('<img>').attr('src', response.drinks[0].strDrinkThumb).addClass('thedrink');
@@ -107,23 +144,8 @@ var DisplayDrinks = function(searched) {
                 $('.moreinfo').show();
                 $('.glassType').html(testereverything);
                 
-                var authKey = "AIzaSyArQekFCAemjpJYgMnZrNT8blQaat7EvQ4";
-                var queryURLBase = "https://www.googleapis.com/youtube/v3/search?key=" + authKey + "&channelId=UCaDY8WjYWy36bnt0RVzSklw&part=snippet,id&order=date&maxResults=50";
-                    $.ajax({
-                    url: queryURLBase,
-                    method: "GET"
-                        }).then(function(data){
-                        var youTubeResults = data.items[Math.floor(Math.random() * Math.floor(data.items.length))];
-                        console.log(data.items.length);
-                        // var youTubeResults = data.items;
-                        var video = $('<iframe>', {
-                            src: 'https://www.youtube.com/embed/'+youTubeResults.id.videoId+'?autoplay=0',
-                            type: 'video/mp4',
-                            controls: true
-                    });
-                    console.log(data.items);
-                    $(".YTContent").html(video);
-                })
+                
+                
 
                 console.log(response.drinks[0]);
                 console.log(totalIngredients);
@@ -155,6 +177,7 @@ var RandomDrink = function(searched) {
                     }
                 }
 
+                var ytDrink = response.drinks[0].strDrink;
                 var dName = $('<div>').text(response.drinks[0].strDrink);
                 var ingList = $('<ul>').addClass('ulClass');
                 var drinkImage = $('<img>').attr('src', response.drinks[0].strDrinkThumb).addClass('randomDrink');
@@ -195,6 +218,24 @@ var RandomDrink = function(searched) {
                 $('.DrinkInst').html(dDirection);
                 $('.moreinfo').show();
                 $('.glassType').html(testereverything);
+
+                var authKey = "AIzaSyArQekFCAemjpJYgMnZrNT8blQaat7EvQ4";
+                var queryURLBase = "https://www.googleapis.com/youtube/v3/search?key=" + authKey + "&channelId=UCaDY8WjYWy36bnt0RVzSklw&part=snippet,id&order=date&q=" + ytDrink + "&maxResults=1";
+                    $.ajax({
+                    url: queryURLBase,
+                    method: "GET"
+                        }).then(function(data){
+                        var youTubeResults = data.items;
+                        console.log(data.items.length);
+                        // var youTubeResults = data.items;
+                        var video = $('<iframe>', {
+                            src: 'https://www.youtube.com/embed/'+youTubeResults.id.videoId+'?autoplay=0',
+                            type: 'video/mp4',
+                            controls: true
+                    });
+                    console.log(youTubeResults);
+                    $(".YTContent").html(video);
+                })
                 
                 console.log(response.drinks[0]);
                 console.log(totalIngredients);
