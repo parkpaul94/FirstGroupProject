@@ -20,7 +20,24 @@
                     </div>
             </div>
             <div class="text-center searchDrinks">
-                    <div id="drinktitle">Find Ingredients</div>
+                <div id="sdrinktitle">Find Recipe</div>
+                <div class="welcomecontainer">
+                        <div class="welcomebutton_contain">
+                        <button class="logoutbutton">Log Out</button></div>
+                        <div class="welcomefont"></div>
+                        </div>
+                <div class="firebase-container">
+                        <div id="loginfont">LogIn</div>
+                        <div class="login_container">
+                                <div class="firebase_content">
+                                    <input type="email" class="form-control" placeholder="Enter Email" id="email">
+                                </div>
+                                <div class="firebase_content">
+                                    <input type="password" class="form-control" placeholder="Enter Password" id="password">
+                            </div>
+                            <button class="openup loginbutton" onclick="login()">Log In</button>
+                        </div>
+                        </div>
                     <div class="text-center sDContent">
                         <div class="form-container">
                         <div class="form-group">
@@ -65,7 +82,9 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 <script src ="assets/javascript/javascript.js"></script>
+<script src ="assets/javascript/firebase.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAn3JnSU5rxciXcxNX43TIF8uMDV3cfstA&callback=initMap"type="text/javascript"></script>
 <script>
     DisplayIng();
