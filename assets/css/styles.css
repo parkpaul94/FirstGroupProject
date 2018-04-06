@@ -148,13 +148,45 @@ a:hover {
 
 .firebase_content {
 	height: 8%;
-	background: #151515;
 	margin: 10px;
-	/* border-radius: 20px; */
+	background: #1f1f1f;
+	border-radius: 5px;
 	padding: 10px;
+}
+.login_container {
+	background: #1f1f1f;
+	border-radius: 5px;
+	padding: 5px 0;
+	margin-top: 15px;
+}
+#loginfont {
+	background: #1f1f1f;
+	border-radius: 5px;
 }
 #email, #password {
 	margin: auto;
+}
+.firebase-container {
+	background: #151515;
+	margin-top: 15px;
+	border-radius: 5px;
+	padding: 15px;
+}
+.welcomecontainer {
+	display: flex;
+	flex-direction: column;
+	height: fit-content;
+	padding: 5px;
+	background: #151515;
+}
+.welcomefont {
+	flex: 1;
+	color: #ffffe0;
+	margin-top: 5px;
+	font-size: 15px;
+}
+.welcomebutton_contain {
+	flex: 1;
 }
 
 /* .slanteddiv:before {
@@ -203,7 +235,7 @@ button:hover {
 }
 #map {
 	/* height: 43%; */
-	height: 250px;
+	height: 185px;
 	/* height: ; */
 	border-radius: 10px;
 }
@@ -439,12 +471,9 @@ button:hover {
     color: #ffffe0;
     font-size: 13px;
     height: 27px;
-    width: 120px;
-    /* margin: 0 4px; */
+	width: 120px;
     border-radius: 5px;
-    margin-left: 30px;
-    margin-bottom: -20px;
-    margin-top: -5px;
+	margin: 0;
     transition: .5s ease-in-out;
 }
 @keyframes blinker {
