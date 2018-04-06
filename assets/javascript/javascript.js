@@ -7,6 +7,69 @@ var DrinkIngredients = [];
 var DrinkMeasure = [];
 
 
+$('#sdrinktitle').hide();
+$('.sdcontent').hide();
+// $('.openup').on('click', function () {
+//     $('.sdcontent').show();
+//     $('#sdrinktitle').show();
+//     $('.openup').hide();
+//     $('#login_div').hide();
+// })
+
+
+// ========================================================================================================================================
+
+var config = {
+    apiKey: "AIzaSyBhoExJwz5h53YXCP8x5Fx9cn5bwyTncTM",
+    authDomain: "firstgroupproject-acd1a.firebaseapp.com",
+    databaseURL: "https://firstgroupproject-acd1a.firebaseio.com",
+    projectId: "firstgroupproject-acd1a",
+    storageBucket: "firstgroupproject-acd1a.appspot.com",
+    messagingSenderId: "497945108400"
+};
+    firebase.initializeApp(config);
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        var user = firebase.auth().currentUser;
+        if (user != null) {
+            var email_id = user.email;
+                $('.sdcontent').show();
+                $('#sdrinktitle').show();
+                $('.openup').hide();
+        }
+    } else {
+        // No user is signed in.
+        // alert("it's an else!");
+    }
+    });
+
+function login () {
+    var userEmail = document.getElementById('email').value;
+    var userPW = document.getElementById('password').value;
+    // alert(userEmail + userPW);
+
+    firebase.auth().signInWithEmailAndPassword(userEmail, userPW).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+
+        alert('Error: ' + errorMessage);
+        // ...
+      });
+}
+
+function logout () {
+    firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+      }).catch(function(error) {
+        // An error happened.
+      });
+}
+
+// ========================================================================================================================================
+
+
 function initMap() {
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
