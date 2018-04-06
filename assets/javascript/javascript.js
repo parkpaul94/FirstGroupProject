@@ -48,10 +48,11 @@ firebase.auth().onAuthStateChanged(function(user) {
 function login () {
     var userEmail = document.getElementById('email').value;
     var userPW = document.getElementById('password').value;
-        $('.sdcontent').show();
-        $('#sdrinktitle').show();
-        $('.openup').hide();
-        $('.main-container').hide();
+    $('.openup').hide();
+    $('.main-container').hide();
+    $('#sdrinktitle').show();
+    $('.sdcontent').show();
+    // $('.logout').show();
     // alert(userEmail + userPW);
 
     firebase.auth().signInWithEmailAndPassword(userEmail, userPW).catch(function(error) {
