@@ -37,7 +37,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                 $('.sdcontent').show();
                 $('#sdrinktitle').show();
                 $('.openup').hide();
-                $('#login_div').hide();
+                $('.main-container').hide();
         }
     } else {
         // No user is signed in.
