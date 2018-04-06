@@ -34,10 +34,10 @@ firebase.auth().onAuthStateChanged(function(user) {
         var user = firebase.auth().currentUser;
         if (user != null) {
             var email_id = user.email;
-                $('.sdcontent').show();
-                $('#sdrinktitle').show();
-                $('.openup').hide();
-                $('.main-container').hide();
+                // $('.sdcontent').show();
+                // $('#sdrinktitle').show();
+                // $('.openup').hide();
+                // $('.main-container').hide();
         }
     } else {
         // No user is signed in.
@@ -48,6 +48,10 @@ firebase.auth().onAuthStateChanged(function(user) {
 function login () {
     var userEmail = document.getElementById('email').value;
     var userPW = document.getElementById('password').value;
+        $('.sdcontent').show();
+        $('#sdrinktitle').show();
+        $('.openup').hide();
+        $('.main-container').hide();
     // alert(userEmail + userPW);
 
     firebase.auth().signInWithEmailAndPassword(userEmail, userPW).catch(function(error) {
