@@ -34,6 +34,20 @@ $('#password').on('keyup', function (event) {
         login();
     }
 })
+$('.logoutbutton').on('click', function (event) {
+    var logoff = window.confirm('Do you want to log off?');
+    if (logoff == true) {
+        logout();
+    }
+    else {
+        return false;
+    }
+    // if (event.which === 13) {
+    //     event.preventDefault();
+    //     searchText = $('#NSearched').val();
+    //     login();
+    // }
+})
 function login () {
  var userEmail = document.getElementById('email').value;
  var userPW = document.getElementById('password').value;
@@ -55,7 +69,7 @@ function login () {
 }
 
 function logout () {
- firebase.auth().signOut().then(function() {
+    firebase.auth().signOut().then(function() {
      // Sign-out successful.
      // $('#sdrinktitle').hide();
     //  $('.sDContent').hide();
