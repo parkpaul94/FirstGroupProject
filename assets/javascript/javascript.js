@@ -34,12 +34,16 @@ firebase.auth().onAuthStateChanged(function(user) {
         var user = firebase.auth().currentUser;
         if (user != null) {
             var email_id = user.email;
+            // $('#sdrinktitle').hide();
+            // $('.sdcontent').hide();
                 // $('.sdcontent').show();
                 // $('#sdrinktitle').show();
                 // $('.openup').hide();
                 // $('.main-container').hide();
         }
     } else {
+        $('#sdrinktitle').hide();
+        $('.sdcontent').hide();
         // No user is signed in.
         // alert("it's an else!");
     }
