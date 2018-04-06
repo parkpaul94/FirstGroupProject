@@ -33,7 +33,8 @@ a:hover {
 	position: relative;
 	display: flex;
 }
-#drinktitle, #sdrinktitle, .log {
+#drinktitle, #sdrinktitle, #loginfont {
+	display: block;
 	font-size: 25px;
 	padding: 10px;
 	color: #ffffe0;
@@ -102,15 +103,14 @@ a:hover {
 }
 .searchDrinks {
 	min-width: 22vw;
-	/* min-width: 25%; */
-	/* flex: 1; */
+
 	background-color: #1a1a1a;
 	position: relative;
 	padding-right: 15px;
 	padding-left: 15px;
 	margin-left: 2%;
 	box-shadow: 5px 5px 5px #171717;
-	height: fit-content;
+	/* height: fit-content; */
 }
 .searchDrinks2 {
 	flex: 1;
@@ -140,12 +140,23 @@ a:hover {
 	border-radius: 20px;
 	padding: 20px 15px;
 	position: relative;
+	height: 30%;
 	height: fit-content;
 	display: flex;
 	flex-direction: column;
-	/* height: inherit; */
-	/* overflow: hidden; */
 }
+
+.firebase_content {
+	height: 8%;
+	background: #151515;
+	margin: 10px;
+	/* border-radius: 20px; */
+	padding: 10px;
+}
+#email, #password {
+	margin: auto;
+}
+
 /* .slanteddiv:before {
     content: '';
     position: absolute;
@@ -191,7 +202,8 @@ button:hover {
 	transition: .5s ease-in-out;
 }
 #map {
-	height: 43%;
+	/* height: 43%; */
+	height: 250px;
 	/* height: ; */
 	border-radius: 10px;
 }
@@ -202,11 +214,17 @@ button:hover {
 	display: flex;
 	margin-bottom: 0;
 }
+.form-group2 {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 0;
+}
 .form-control {
-	width: 90%;
+	width: 100%;
 	float: left;
 	margin-right: 7px;
 }
+
 .drinkinfo {
 	color: white;
 	font-size: 20px;
@@ -413,25 +431,21 @@ button:hover {
 }
 .button-center {
     margin: 0 auto;
-    margin-top: 1%;
-    margin-bottom: 1%;
-}
-input {
-	display: block;
-	width: 90%;
-	margin: 0 auto;
-	margin-bottom: 20px;
-	border-radius: 4px;
-	padding: 5px;
-}
-.log {
-	margin-bottom: 10px;
-	margin: 0 auto;
-	margin-bottom: 30px;
-}
-.openup {
-	width: 40%;
-	margin-bottom: 20px;
+    margin-top: .1%;
+    margin-bottom: .5%;
+}	
+.logoutbutton {
+	background-color: #414141;
+    color: #ffffe0;
+    font-size: 13px;
+    height: 27px;
+    width: 120px;
+    /* margin: 0 4px; */
+    border-radius: 5px;
+    margin-left: 30px;
+    margin-bottom: -20px;
+    margin-top: -5px;
+    transition: .5s ease-in-out;
 }
 @keyframes blinker {
 	0% {
@@ -483,6 +497,4 @@ MAKE SEARCHDRINKS SMALLER BELOW 693PX. THAT'S WHEN IT MESSES WITH THE HEIGHT OF 
 		font-size: 15px;
 	}
 }
-#map {
-	height: 300px;
-}
+

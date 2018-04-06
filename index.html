@@ -18,8 +18,7 @@
                         </div>
                         <div class="rDRight">
                             <div class="randomContain">
-                                <div class="randomContainer">
-                                </div>
+                                <div class="randomContainer"></div>
                             </div>
                             <div class="directions">
                                 <div class="DrinkInst"></div>
@@ -27,65 +26,75 @@
                             <div class="moreinfo">
                                 <div class="glassType"></div>
                             </div>
+                        </div>
                             <div class="YTContent"></div>
-                    </div>
                     </div>
             </div>
             <div class="text-center searchDrinks">
-                <div id="sdrinktitle">Find Recipe</div>
-                <button class="openup logout" onclick="logout()">Log Out</button>
-                <!-- <button class="openup">Click To Open</button> -->
-                <div id="login_div" class="main-container">
-                        <h3 class="log">LogIn</h3>
-                        <input type="email" placeholder="Email" id="email">
-                        <input type="password" placeholder="Password" id="password">
-                        <button class="openup" onclick="login()">Log In</button>
-                    </div>
-                <div class="text-center sDContent">
-                    <div class="form-container">
-                    <div class="form-group">
-                        <label for="inputDefault"></label>
-                        <input type="text" class="form-control" placeholder="Cocktail Search" id="NSearched">
-                        <button id="searchbutton" class="CSearch">Search</button>
-                    </div><hr>
-                    <div class="form-group">
-                        <label for="inputDefault"></label>
-                        <input type="text" class="form-control" placeholder="Ingredient Name" id="iSearched">
-                        <button id="searchbutton" class="IName">Search</button>
-                    </div><hr>
-                    <div class="form-group">
-                        <label for="inputDefault"></label>
-                        <input type="text" class="form-control" placeholder="Ingredient Search" id="IngSearched">
-                        <button id="searchbutton" class="ISearch">Search</button>
-                    </div><hr>
+                <div id="sdrinktitle">Find Recipe
+                        <button class="logoutbutton" onclick="logout()">Log Out</button>
                 </div>
-                <div class="button-container">
-                    <div class="alcohol-button">
-                        <button class="YAlcohol">Alcoholic</button>
-                        <button class="NAlcohol">Non-Alcoholic</button>
-                        <hr>
+                
+
+                <div class="firebase-container">
+                <div id="loginfont">LogIn</div>
+                <div class="login_container">
+                        <div class="firebase_content">
+                            <input type="email" class="form-control" placeholder="Enter Email" id="email">
+                        </div>
+                        <div class="firebase_content">
+                            <input type="password" class="form-control" placeholder="Enter Password" id="password">
                     </div>
-                    <div class="glass-button">
-                        <button class="glass">Glass</button>
-                        <button class="flute">Flute</button>
-                        <hr>
-                    </div>
-                    <div class="drink-type">
-                        <button class="ordinary">Ordinary</button>
-                        <button class="cocktail">Cocktail</button>
-                        <hr>
-                    </div>
+                    <button class="openup loginbutton" onclick="login()">Log In</button>
                 </div>
-                    <div class="mapcontain">
-                        <div id="map"></div>
+                </div>
+
+                    <div class="text-center sDContent">
+                        <div class="form-container">
+                        <div class="form-group">
+                            <label for="inputDefault"></label>
+                            <input type="text" class="form-control" placeholder="Cocktail Search" id="NSearched">
+                            <button id="searchbutton" class="CSearch">Search</button>
+                        </div><hr>
+                        <div class="form-group">
+                            <label for="inputDefault"></label>
+                            <input type="text" class="form-control" placeholder="Ingredient Name" id="iSearched">
+                            <button id="searchbutton" class="IName">Search</button>
+                        </div><hr>
+                        <div class="form-group">
+                            <label for="inputDefault"></label>
+                            <input type="text" class="form-control" placeholder="Ingredient Search" id="IngSearched">
+                            <button id="searchbutton" class="ISearch">Search</button>
+                        </div><hr>
                     </div>
-            </div>
+                    <div class="button-container">
+                        <div class="alcohol-button">
+                            <button class="YAlcohol">Alcoholic</button>
+                            <button class="NAlcohol">Non-Alcoholic</button>
+                            <hr>
+                        </div>
+                        <div class="glass-button">
+                            <button class="glass">Glass</button>
+                            <button class="flute">Flute</button>
+                            <hr>
+                        </div>
+                        <div class="drink-type">
+                            <button class="ordinary">Ordinary</button>
+                            <button class="cocktail">Cocktail</button>
+                            <hr>
+                        </div>
+                    </div>
+                        <div class="mapcontain">
+                            <div id="map"></div>
+                        </div>
+                </div>
             </div>
         </div>  
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
         <script src ="assets/javascript/javascript.js"></script>
+        <script src ="assets/javascript/firebase.js"></script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAn3JnSU5rxciXcxNX43TIF8uMDV3cfstA&callback=initMap"type="text/javascript"></script>
         <script>
         RandomDrink();

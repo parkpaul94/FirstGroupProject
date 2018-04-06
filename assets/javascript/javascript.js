@@ -7,79 +7,6 @@ var DrinkIngredients = [];
 var DrinkMeasure = [];
 
 
-$('#sdrinktitle').hide();
-$('.sdcontent').hide();
-// $('.openup').on('click', function () {
-//     $('.sdcontent').show();
-//     $('#sdrinktitle').show();
-//     $('.openup').hide();
-//     $('#login_div').hide();
-// })
-
-
-// ========================================================================================================================================
-
-var config = {
-    apiKey: "AIzaSyBhoExJwz5h53YXCP8x5Fx9cn5bwyTncTM",
-    authDomain: "firstgroupproject-acd1a.firebaseapp.com",
-    databaseURL: "https://firstgroupproject-acd1a.firebaseio.com",
-    projectId: "firstgroupproject-acd1a",
-    storageBucket: "firstgroupproject-acd1a.appspot.com",
-    messagingSenderId: "497945108400"
-};
-    firebase.initializeApp(config);
-
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        var user = firebase.auth().currentUser;
-        if (user != null) {
-            var email_id = user.email;
-            // $('#sdrinktitle').hide();
-            // $('.sdcontent').hide();
-                // $('.sdcontent').show();
-                // $('#sdrinktitle').show();
-                // $('.openup').hide();
-                // $('.main-container').hide();
-        }
-    } else {
-        $('#sdrinktitle').hide();
-        $('.sdcontent').hide();
-        // No user is signed in.
-        // alert("it's an else!");
-    }
-    });
-
-function login () {
-    var userEmail = document.getElementById('email').value;
-    var userPW = document.getElementById('password').value;
-    $('.openup').hide();
-    $('.main-container').hide();
-    $('#sdrinktitle').show();
-    $('.sdcontent').show();
-    $('.logout').show();
-    // alert(userEmail + userPW);
-
-    firebase.auth().signInWithEmailAndPassword(userEmail, userPW).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-
-        alert('Error: ' + errorMessage);
-        // ...
-      });
-}
-
-function logout () {
-    firebase.auth().signOut().then(function() {
-        // Sign-out successful.
-      }).catch(function(error) {
-        // An error happened.
-      });
-}
-
-// ========================================================================================================================================
-
-
 function initMap() {
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -292,24 +219,6 @@ var RandomDrink = function(searched) {
                 $('.moreinfo').show();
                 $('.glassType').html(testereverything);
 
-                var authKey = "AIzaSyArQekFCAemjpJYgMnZrNT8blQaat7EvQ4";
-                var queryURLBase = "https://www.googleapis.com/youtube/v3/search?key=" + authKey + "&channelId=UCaDY8WjYWy36bnt0RVzSklw&part=snippet,id&order=date&q=" + ytDrink + "&maxResults=1";
-                    $.ajax({
-                    url: queryURLBase,
-                    method: "GET"
-                        }).then(function(data){
-                        var youTubeResults = data.items;
-                        console.log(data.items.length);
-                        // var youTubeResults = data.items;
-                        var video = $('<iframe>', {
-                            src: 'https://www.youtube.com/embed/'+youTubeResults.id.videoId+'?autoplay=0',
-                            type: 'video/mp4',
-                            controls: true
-                    });
-                    console.log(youTubeResults);
-                    $(".YTContent").html(video);
-                })
-                
                 console.log(response.drinks[0]);
                 console.log(totalIngredients);
                 console.log(totalMeasure);
