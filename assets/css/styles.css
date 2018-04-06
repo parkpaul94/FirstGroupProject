@@ -132,13 +132,14 @@ a:hover {
 	display: flex;
 }
 .sDContent {
-	display: block;
+	display: none;
 	background: #151515;
 	box-sizing: border-box;
 	text-align: center;
 	margin-bottom: 15px;
 	border-radius: 20px;
-	padding: 20px 15px;
+	/* padding: 20px 15px; */
+	padding: 10px 15px 15px 15px;
 	position: relative;
 	height: 30%;
 	height: fit-content;
@@ -186,6 +187,7 @@ a:hover {
 	font-size: 15px;
 }
 .welcomebutton_contain {
+	padding-top: 5px;
 	flex: 1;
 }
 
@@ -235,7 +237,7 @@ button:hover {
 }
 #map {
 	/* height: 43%; */
-	height: 185px;
+	height: 190px;
 	/* height: ; */
 	border-radius: 10px;
 }
@@ -475,6 +477,12 @@ button:hover {
     border-radius: 5px;
 	margin: 0;
     transition: .5s ease-in-out;
+}
+.createID {
+	background-color: #6b0c06;
+}
+.createID:hover {
+	background-color: #3B0000;
 }
 @keyframes blinker {
 	0% {
