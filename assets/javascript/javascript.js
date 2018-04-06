@@ -52,7 +52,7 @@ function login () {
     $('.main-container').hide();
     $('#sdrinktitle').show();
     $('.sdcontent').show();
-    // $('.logout').show();
+    $('.logout').show();
     // alert(userEmail + userPW);
 
     firebase.auth().signInWithEmailAndPassword(userEmail, userPW).catch(function(error) {
