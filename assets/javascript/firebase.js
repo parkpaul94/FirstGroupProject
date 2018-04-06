@@ -15,7 +15,9 @@ firebase.auth().onAuthStateChanged(function(user) {
      var email_id = user.email;
      var email_verified = user.emailVerified;
      if (email_verified != false) {
+        // var displayname = window.prompt('Please Enter Your Name');
         console.log(email_verified);
+        // var welcomeuser = $('<div>').text('Welcome: ' + displayname + email_id);
         var welcomeuser = $('<div>').text('Welcome: ' + email_id);
         console.log(email_id);
         $('.welcomecontainer').show();
@@ -41,17 +43,22 @@ firebase.auth().onAuthStateChanged(function(user) {
  }
  });
 function create() {
-    $('.verifyID').show();
-    $('.loginbutton').hide();
     var userEmail = document.getElementById('email').value;
     var userPW = document.getElementById('password').value;
-    alert('Account created. Please verify your account!')
     firebase.auth().createUserWithEmailAndPassword(userEmail, userPW).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-   
-        alert('Error: ' + errorMessage);
+        if (error != false) {
+            alert('Error: ' + errorMessage);
+            
+        }
+        // else {
+        if (error != true) {
+            // alert('Account created. Please verify your account!');
+            $('.verifyID').show();
+            $('.loginbutton').hide();
+        }
         // ...
       });
 }
@@ -82,7 +89,6 @@ $('.logoutbutton').on('click', function (event) {
         $('.logoutbutton').hide();
     }
     else {
-        console.log('hello');
         return false;
     }
 })

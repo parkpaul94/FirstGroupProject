@@ -484,6 +484,12 @@ button:hover {
 .createID:hover {
 	background-color: #3B0000;
 }
+.verifyID {
+	background-color: #220000;
+}
+.verifyID:hover {
+	background-color: #4A0F0F;
+}
 @keyframes blinker {
 	0% {
 		opacity: 1;
