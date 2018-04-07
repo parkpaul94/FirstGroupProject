@@ -114,11 +114,19 @@ var DisplayDrinks = function(searched) {
                 var dName = $('<div>').text(response.drinks[0].strDrink).attr('id', 'drinktitle');
                 var ingList = $('<ul>').addClass('ulClass');
                 var drinkImage = $('<img>').attr('src', response.drinks[0].strDrinkThumb).addClass('thedrink');
+                var dInstructions = $('<div>').text('Drink Instructions').addClass('list inst-margin');
                 var dDirection = $('<div>').text(response.drinks[0].strInstructions).addClass('list');
                 var dGlass = $('<div>').text('Glass: ' + response.drinks[0].strGlass).addClass('list glass-row');
                 var dAlc = $('<div>').text('Type: ' + response.drinks[0].strAlcoholic).addClass('list glass-row');
                 var dCata = $('<div>').text('Catagory: ' + response.drinks[0].strCategory).addClass('list glass-row');
                 var testereverything = $('<div>');
+                var rmDisp = $('<li>').addClass('recipe-display2');
+                var rName = $('<div>').text('Recipe').addClass('DisplayD2 display-ingedients');
+                var mName = $('<div>').text('Measurement').addClass('DisplayD2 display-ingedients');
+                rmDisp.append(rName);
+                rmDisp.append(mName);
+                ingList.append(rmDisp);
+                
                 testereverything.append(dAlc);
                 testereverything.append(dCata);
                 testereverything.append(dGlass);
@@ -136,6 +144,7 @@ var DisplayDrinks = function(searched) {
                 $('.drinkname').html(dName);
                 $('.DrinkImg').html(drinkImage);
                 $('.ListContainer').addClass('active');
+                $('.directions').prepend(dInstructions);
                 $('.ListContainer').html(ingList);
                 $('.DrinkInst').addClass('active');
                 $('.DrinkInst').html(dDirection);
@@ -212,7 +221,6 @@ var RandomDrink = function(searched) {
                 $('.directions').prepend(dInstructions);
                 $('.randomContainer').html(ingList);
                 $('.DrinkInst').addClass('active');
-                $('.DrinkInst').html(dDirection);
                 $('.DrinkInst').html(dDirection);
                 $('.moreinfo').addClass('active');
                 $('.glassType').html(testereverything);

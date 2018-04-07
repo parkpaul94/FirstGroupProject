@@ -412,7 +412,7 @@ button:hover {
 	/* padding: 8px 8px 0 8px; */
 	padding: 8px;
 	border-radius: 5px;
-	flex: 1.5;
+	flex: 1.95;
 	height: fit-content;
 }
 .drinkcontain {
@@ -479,7 +479,8 @@ button:hover {
 	flex: 1;
 }
 .flexcontainer {
-    margin: 1% 1%;
+	margin: 1% 1%;
+	height: fit-content;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

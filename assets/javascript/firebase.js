@@ -25,8 +25,8 @@ firebase.auth().onAuthStateChanged(function(user) {
         $('#sdrinktitle').addClass('active');
         $('#drinktitle').addClass('active');
         $('.sDContent').addClass('active');    
-        $('.randomDrinks').addClass('active');
-        $('.searchDrinks').addClass('active');         
+             $('.randomDrinks').addClass('active');
+     $('.searchDrinks').addClass('active');         
      }
  } else {
      $('.randomDrinks').addClass('active');
