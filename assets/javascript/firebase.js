@@ -1,4 +1,3 @@
-$('.verifyID').hide();
 var config = {
     apiKey: "AIzaSyBhoExJwz5h53YXCP8x5Fx9cn5bwyTncTM",
     authDomain: "firstgroupproject-acd1a.firebaseapp.com",
@@ -18,20 +17,20 @@ firebase.auth().onAuthStateChanged(function(user) {
         console.log(email_verified);
         var welcomeuser = $('<div>').text('Welcome: ' + email_id);
         console.log(email_id);
-        $('.welcomecontainer').show();
+        $('.welcomecontainer').addClass('active');
         $('.welcomefont').html(welcomeuser);
         $('.welcomecontainer').append($('.welcomefont'));
-             $('.firebase-container').hide();
-             $('.logoutbutton').show();
-             $('#sdrinktitle').show();
-             $('#drinktitle').show();
-             $('.sDContent').show();             
+        $('.firebase-container').removeClass('active');
+        $('.logoutbutton').addClass('active');
+        $('#sdrinktitle').addClass('active');
+        $('#drinktitle').addClass('active');
+        $('.sDContent').addClass('active');             
      }
  } else {
-     $('.firebase-container').show();
-     $('.welcomecontainer').hide();
-     $('#sdrinktitle').hide();
-     $('.sDContent').hide();
+     $('.firebase-container').addClass('active');
+     $('.welcomecontainer').removeClass('active');
+     $('#sdrinktitle').removeClass('active');
+     $('.sDContent').removeClass('active');
  }
  });
 function create() {
@@ -39,8 +38,8 @@ function create() {
     var userEmail = document.getElementById('email').value;
     var userPW = document.getElementById('password').value;
     firebase.auth().createUserWithEmailAndPassword(userEmail, userPW).then( function(user) {
-        $('.verifyID').show();
-        $('.loginbutton').hide();
+        $('.verifyID').addClass('active');
+        $('.loginbutton').addClass('active');
         alert('Created Account! Please verify your account!');
     }).catch(function(error) {
         // Handle Errors here.
@@ -48,7 +47,6 @@ function create() {
         var errorMessage = error.message;
 
         console.log(error)
-
         alert('Error: ' + errorMessage);
 
       });
@@ -76,8 +74,8 @@ $('.logoutbutton').on('click', function (event) {
     var logoff = window.confirm('Do you want to sign off?');
     if (logoff == true) {
         logout();
-        $('.welcomecontainer').hide();
-        $('.logoutbutton').hide();
+        $('.welcomecontainer').removeClass('active');
+        $('.logoutbutton').removeClass('active');
     }
     else {
         return false;
@@ -93,6 +91,7 @@ function login () {
      var errorMessage = error.message;
 
      alert('Error: ' + errorMessage);
+     // ...
    });
 }
 

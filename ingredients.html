@@ -29,19 +29,23 @@
                     
     
                     <div class="firebase-container">
-                    <div id="loginfont">LogIn</div>
-                    <div class="login_container">
-                            <div class="firebase_content">
-                                <input type="email" class="form-control" placeholder="Enter Email" id="email">
+                            <div id="loginfont">LogIn</div>
+                            <div class="login_container">
+                                    <div class="firebase_content">
+                                        <div class="epfont">Email:</div>
+                                        <input type="email" class="form-control nofloat" placeholder="Enter Email" id="email">
+                                    </div>
+                                    <div class="firebase_content">
+                                            <div class="epfont">Password:</div>
+                                        <input type="password" class="form-control nofloat" placeholder="Enter Password" id="password">
+                                </div>
+                            <div class="login_button_container">
+                                <button class="createID" onclick="create()">Create ID</button>
+                                <button class="verifyID" onclick="verifyID()">Verify ID</button>
+                                <button class="loginbutton" onclick="login()">Log In</button>
                             </div>
-                            <div class="firebase_content">
-                                <input type="password" class="form-control" placeholder="Enter Password" id="password">
-                        </div>
-                        <button class="createID" onclick="create()">Create ID</button>
-                        <button class="verifyID" onclick="verifyID()">Verify ID</button>
-                        <button class="loginbutton" onclick="login()">Log In</button>
-                    </div>
-                    </div>
+                            </div>
+                            </div>
                     <div class="text-center sDContent">
                         <div class="form-container">
                         <div class="form-group">

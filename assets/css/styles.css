@@ -111,14 +111,14 @@ a:hover {
 }
 .searchDrinks {
 	min-width: 22vw;
-
 	background-color: #1a1a1a;
 	position: relative;
-	padding-right: 15px;
-	padding-left: 15px;
+	padding: 15px;
+	/* padding-right: 15px;
+	padding-left: 15px; */
 	margin-left: 2%;
 	box-shadow: 5px 5px 5px #171717;
-	/* height: fit-content; */
+	height: fit-content;
 }
 .searchDrinks2 {
 	flex: 1;
@@ -144,7 +144,7 @@ a:hover {
 	background: #151515;
 	box-sizing: border-box;
 	text-align: center;
-	margin-bottom: 15px;
+	/* margin-bottom: 15px; */
 	border-radius: 5px 5px 20px 20px;
 	padding: 15px;
 	position: relative;
@@ -174,11 +174,10 @@ a:hover {
 }
 
 .firebase_content {
-	height: 8%;
 	margin: 10px;
 	background: #1f1f1f;
 	border-radius: 5px;
-	padding: 10px;
+	padding: 0 5px;
 }
 .login_container {
 	background: #1f1f1f;
@@ -196,9 +195,19 @@ a:hover {
 .firebase-container {
 	display: none;
 	background: #151515;
-	margin-top: 15px;
+	float: none;
+	/* margin-top: 15px; */
 	border-radius: 5px;
 	padding: 15px;
+}
+.form-control.nofloat {
+	float: none;
+}
+.epfont {
+	font-size: 16px;
+	padding-bottom: 10px;
+	color: #ffffe0;
+	text-align: left;
 }
 .welcomecontainer {
 	display: none;
@@ -523,6 +532,9 @@ button:hover {
 }
 .verifyID:hover {
 	background-color: #4A0F0F;
+}
+.login_button_container {
+	margin-top: 15px;
 }
 @keyframes blinker {
 	0% {
