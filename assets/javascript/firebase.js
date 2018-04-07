@@ -15,17 +15,12 @@ firebase.auth().onAuthStateChanged(function(user) {
      var email_id = user.email;
      var email_verified = user.emailVerified;
      if (email_verified != false) {
-        // var displayname = window.prompt('Please Enter Your Name');
         console.log(email_verified);
-        // var welcomeuser = $('<div>').text('Welcome: ' + displayname + email_id);
         var welcomeuser = $('<div>').text('Welcome: ' + email_id);
         console.log(email_id);
         $('.welcomecontainer').show();
         $('.welcomefont').html(welcomeuser);
         $('.welcomecontainer').append($('.welcomefont'));
-        // var logout_button = $('<button>').text('Log Out').addClass('logoutbutton');
-        // $('.welcomecontainer').append(logout_button);
-            //  $('.loginbutton').hide();
              $('.firebase-container').hide();
              $('.logoutbutton').show();
              $('#sdrinktitle').show();
@@ -35,11 +30,8 @@ firebase.auth().onAuthStateChanged(function(user) {
  } else {
      $('.firebase-container').show();
      $('.welcomecontainer').hide();
-    //  $('.loginbutton').show();
-    // $('#drinktitle').hide();
      $('#sdrinktitle').hide();
      $('.sDContent').hide();
-    //  $('.logoutbutton').hide();
  }
  });
 function create() {
@@ -94,12 +86,6 @@ $('.logoutbutton').on('click', function (event) {
 function login () {
     var userEmail = document.getElementById('email').value;
     var userPW = document.getElementById('password').value;
- // $('.loginbutton').hide();
- // $('.main-container').hide();
- // $('#sdrinktitle').show();
- // $('.sdcontent').show();
- // $('.logoutbutton').show();
- // alert(userEmail + userPW);
 
  firebase.auth().signInWithEmailAndPassword(userEmail, userPW).catch(function(error) {
      // Handle Errors here.
@@ -107,16 +93,12 @@ function login () {
      var errorMessage = error.message;
 
      alert('Error: ' + errorMessage);
-     // ...
    });
 }
 
 function logout () {
     firebase.auth().signOut().then(function() {
      // Sign-out successful.
-     // $('#sdrinktitle').hide();
-    //  $('.sDContent').hide();
-    //  $('.main-container').show();
    }).catch(function(error) {
      // An error happened.
    });

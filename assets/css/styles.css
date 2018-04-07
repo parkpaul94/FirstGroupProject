@@ -32,9 +32,17 @@ a:hover {
 	height: 690px;
 	position: relative;
 	display: flex;
+	margin-bottom: 2%;
 }
-#drinktitle, #sdrinktitle, #loginfont {
+#drinktitle, #loginfont {
+	/* display: none; */
 	display: block;
+	font-size: 25px;
+	padding: 10px;
+	color: #ffffe0;
+}
+#sdrinktitle {
+	display: none;
 	font-size: 25px;
 	padding: 10px;
 	color: #ffffe0;
@@ -137,14 +145,32 @@ a:hover {
 	box-sizing: border-box;
 	text-align: center;
 	margin-bottom: 15px;
-	border-radius: 20px;
-	/* padding: 20px 15px; */
-	padding: 10px 15px 15px 15px;
+	border-radius: 5px 5px 20px 20px;
+	padding: 15px;
 	position: relative;
 	height: 30%;
 	height: fit-content;
-	display: flex;
 	flex-direction: column;
+}
+
+.sDContent.active {
+	display: flex;
+}
+
+.firebase-container.active {
+	display: block;
+}
+.welcomecontainer.active {
+	display: flex;
+}
+.loginbutton.active {
+	display: none;
+}
+.verifyID.active {
+	display: block;
+}
+#sdrinktitle.active {
+	display: block;
 }
 
 .firebase_content {
@@ -168,17 +194,20 @@ a:hover {
 	margin: auto;
 }
 .firebase-container {
+	display: none;
 	background: #151515;
 	margin-top: 15px;
 	border-radius: 5px;
 	padding: 15px;
 }
 .welcomecontainer {
-	display: flex;
+	display: none;
 	flex-direction: column;
 	height: fit-content;
-	padding: 5px;
+	padding: 10px 0;
 	background: #151515;
+	margin-bottom: 5px;
+	border-radius: 15px 15px 5px 5px;
 }
 .welcomefont {
 	flex: 1;
@@ -237,7 +266,7 @@ button:hover {
 }
 #map {
 	/* height: 43%; */
-	height: 190px;
+	height: 175px;
 	/* height: ; */
 	border-radius: 10px;
 }
@@ -469,6 +498,7 @@ button:hover {
     margin-bottom: .5%;
 }	
 .logoutbutton {
+	display: none;
 	background-color: #414141;
     color: #ffffe0;
     font-size: 13px;
@@ -478,6 +508,9 @@ button:hover {
 	margin: 0;
     transition: .5s ease-in-out;
 }
+.logoutbutton.active {
+	display: inline;
+}
 .createID {
 	background-color: #6b0c06;
 }
@@ -485,6 +518,7 @@ button:hover {
 	background-color: #3B0000;
 }
 .verifyID {
+	display: none;
 	background-color: #220000;
 }
 .verifyID:hover {

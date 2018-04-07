@@ -6,9 +6,7 @@ var searchText = "";
 var DrinkIngredients = [];
 var DrinkMeasure = [];
 
-$('.welcomecontainer').hide();
-$('#sdrinktitle').hide();
-$('.sDContent').hide();
+
 function initMap() {
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
