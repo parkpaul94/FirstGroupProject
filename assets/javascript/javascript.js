@@ -127,6 +127,7 @@ var DisplayDrinks = function(searched) {
                 rmDisp.append(mName);
                 ingList.append(rmDisp);
                 
+                
                 testereverything.append(dAlc);
                 testereverything.append(dCata);
                 testereverything.append(dGlass);
@@ -144,7 +145,6 @@ var DisplayDrinks = function(searched) {
                 $('.drinkname').html(dName);
                 $('.DrinkImg').html(drinkImage);
                 $('.ListContainer').addClass('active');
-                $('.directions').prepend(dInstructions);
                 $('.ListContainer').html(ingList);
                 $('.DrinkInst').addClass('active');
                 $('.DrinkInst').html(dDirection);
@@ -184,7 +184,6 @@ var RandomDrink = function(searched) {
                     }
                 }
 
-                var ytDrink = response.drinks[0].strDrink;
                 var dName = $('<div>').text(response.drinks[0].strDrink);
                 var ingList = $('<ul>').addClass('ulClass');
                 var drinkImage = $('<img>').attr('src', response.drinks[0].strDrinkThumb).addClass('randomDrink');
