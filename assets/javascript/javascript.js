@@ -48,11 +48,9 @@ $('#NSearched').on('keyup', function(event) {
 var DisplayDrinks = function(searched) {
     var drinkresult = JSON.parse(localStorage.getItem("sDrinks"));
     console.log(drinkresult);
-    $('.ListContainer').hide();
-    $('.YTContent').hide();
-    $('.video-contain').hide();
-    $('.DrinkInst').hide();
-    $('.moreinfo').hide();
+    $('.ListContainer').removeClass('active');
+    $('.DrinkInst').removeClass('active');
+    $('.moreinfo').removeClass('active');
     for (var i = 0; i < drinkresult.length; i++) {
         var drinkLists = $('<li>').text(drinkresult[i].strDrink);
         drinkLists.addClass('list').attr('id', drinkresult[i].idDrink);
@@ -82,13 +80,13 @@ var DisplayDrinks = function(searched) {
                 console.log(data.items);
                 })
     $('.VideoShow').on('click', function() {
-        $(".YTContent").show();
-        $(".video-contain").show();
+        $(".YTContent").addClass('active');
+        $(".video-contain").addClass('active');
     });
     
     $('.VideoHide').on('click', function() {
-        $(".YTContent").hide();
-        $(".video-contain").hide();
+        $(".YTContent").removeClass('active');
+        $(".video-contain").removeClass('active');
     });
 
     $('.list').on('click', function(drinkSelected) {
@@ -137,11 +135,11 @@ var DisplayDrinks = function(searched) {
                 }
                 $('.drinkname').html(dName);
                 $('.DrinkImg').html(drinkImage);
-                $('.ListContainer').show();
+                $('.ListContainer').addClass('active');
                 $('.ListContainer').html(ingList);
-                $('.DrinkInst').show();
+                $('.DrinkInst').addClass('active');
                 $('.DrinkInst').html(dDirection);
-                $('.moreinfo').show();
+                $('.moreinfo').addClass('active');
                 $('.glassType').html(testereverything);
                 
                 
@@ -155,9 +153,9 @@ var DisplayDrinks = function(searched) {
 };
 var RandomDrink = function(searched) {
     console.log(searched);
-    $('.randomContainer').hide();
-    $('.DrinkInst').hide();
-    $('.moreinfo').hide();
+    $('.randomContainer').removeClass('active');
+    $('.DrinkInst').removeClass('active');
+    $('.moreinfo').removeClass('active');
         $.ajax({
             url: searchURL + 'random.php',
             method: "GET"
@@ -210,13 +208,13 @@ var RandomDrink = function(searched) {
                 }
                 $('#drinktitle').html(dName);
                 $('.randomImg').html(drinkImage);
-                $('.randomContainer').show();
+                $('.randomContainer').addClass('active');
                 $('.directions').prepend(dInstructions);
                 $('.randomContainer').html(ingList);
-                $('.DrinkInst').show();
+                $('.DrinkInst').addClass('active');
                 $('.DrinkInst').html(dDirection);
                 $('.DrinkInst').html(dDirection);
-                $('.moreinfo').show();
+                $('.moreinfo').addClass('active');
                 $('.glassType').html(testereverything);
 
                 console.log(response.drinks[0]);

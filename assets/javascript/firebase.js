@@ -24,9 +24,13 @@ firebase.auth().onAuthStateChanged(function(user) {
         $('.logoutbutton').addClass('active');
         $('#sdrinktitle').addClass('active');
         $('#drinktitle').addClass('active');
-        $('.sDContent').addClass('active');             
+        $('.sDContent').addClass('active');    
+        $('.randomDrinks').addClass('active');
+        $('.searchDrinks').addClass('active');         
      }
  } else {
+     $('.randomDrinks').addClass('active');
+     $('.searchDrinks').addClass('active');
      $('.firebase-container').addClass('active');
      $('.welcomecontainer').removeClass('active');
      $('#sdrinktitle').removeClass('active');

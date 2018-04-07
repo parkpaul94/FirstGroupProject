@@ -101,6 +101,7 @@ a:hover {
 	/* padding-left: 50px; */
 }
 .randomDrinks {
+	display: none;
 	flex: 33%;
 	background-color: #1a1a1a;
 	position: relative;
@@ -110,6 +111,7 @@ a:hover {
 	box-shadow: 5px 5px 5px #171717;
 }
 .searchDrinks {
+	display: none;
 	min-width: 22vw;
 	background-color: #1a1a1a;
 	position: relative;
@@ -152,11 +154,15 @@ a:hover {
 	height: fit-content;
 	flex-direction: column;
 }
-
+.randomDrinks.active {
+	display: block;
+}
 .sDContent.active {
 	display: flex;
 }
-
+.searchDrinks.active {
+	display: block;
+}
 .firebase-container.active {
 	display: block;
 }
@@ -167,7 +173,7 @@ a:hover {
 	display: none;
 }
 .verifyID.active {
-	display: block;
+	display: inline;
 }
 #sdrinktitle.active {
 	display: block;
@@ -400,12 +406,14 @@ button:hover {
 	flex: 1;
 }
 .ListContainer {
+	display: none;
 	background-color: #151515;
 	margin: 5px 0;
 	/* padding: 8px 8px 0 8px; */
 	padding: 8px;
 	border-radius: 5px;
 	flex: 1.5;
+	height: fit-content;
 }
 .drinkcontain {
 	display: flex;
@@ -432,12 +440,13 @@ button:hover {
     background-color: #151515;
 }
 .DrinkInst {
+	display: none;
 	text-align: justify;
 	padding: 5px;
 	width: 100%;
 }
 .moreinfo {
-	display: flex;
+	display: none;
 	flex-direction: column;
 	margin: 0 10px 15px 15px;
 	background-color: #151515;
@@ -462,6 +471,7 @@ button:hover {
     margin: 30px 10px 5px 15px;
 }
 .randomContainer {
+	display: none;
 	background-color: #151515;
 	margin: 5px 0;
 	padding: 5px;
@@ -475,12 +485,11 @@ button:hover {
     flex-wrap: wrap;
 }
 .video-contain {
+	display: none;
     color: #ebebeb;
     font-size: 18px;
-    display: flex;
     flex-direction: column;
     position: relative;
-    display: block;
     padding: 0.75rem 1.25rem;
     background-color: #1a1a1a;
     border-radius: 5px;
@@ -489,9 +498,27 @@ button:hover {
     margin-bottom: 5%;
     box-shadow: 5px 5px 5px #171717;
 }
+.video-contain.active {
+	display: block;
+}
 .YTContent {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
+}
+.YTContent.active {
+	display: flex;
+}
+.DrinkInst.active {
+	display: block;
+}
+.moreinfo.active {
+	display: flex;
+}
+.ListContainer.active {
+	display: block;
+}
+.randomContainer.active {
+	display: block;
 }
 .dFlex {
     flex: 20%;
