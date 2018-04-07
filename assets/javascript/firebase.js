@@ -43,23 +43,22 @@ firebase.auth().onAuthStateChanged(function(user) {
  }
  });
 function create() {
+    console.log('create');
     var userEmail = document.getElementById('email').value;
     var userPW = document.getElementById('password').value;
-    firebase.auth().createUserWithEmailAndPassword(userEmail, userPW).catch(function(error) {
+    firebase.auth().createUserWithEmailAndPassword(userEmail, userPW).then( function(user) {
+        $('.verifyID').show();
+        $('.loginbutton').hide();
+        alert('Created Account! Please verify your account!');
+    }).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        if (error != false) {
-            alert('Error: ' + errorMessage);
-            
-        }
-        // else {
-        if (error != true) {
-            // alert('Account created. Please verify your account!');
-            $('.verifyID').show();
-            $('.loginbutton').hide();
-        }
-        // ...
+
+        console.log(error)
+
+        alert('Error: ' + errorMessage);
+
       });
 }
 function verifyID() {
